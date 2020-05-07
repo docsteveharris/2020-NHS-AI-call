@@ -1,0 +1,62 @@
+Benefit to patients, the NHS and the wider population
+
+> Please describe how your solution will change clinical or social care practice and provide benefit to patients and potential cost savings. Please provide a clear case of how the proposed device, technology or intervention will change clinical or social care practice and provide benefit to patients (such as reduced mortality or morbidity, improved quality of life, reduced misdiagnosis, improved patient outcomes and experiences). Potential cost savings for the NHS should also be provided, along with details of the expected involvement of patient and/or public representatives during the product development process. Please note that your AI solution must have the potential to be cost effective and meet at least one of the following criteria 􏰍 - Improvement in patient outcomes 􏰍 - Improvement in patient experience 􏰍 - Improvement in operational efficiency
+
+
+
+## Response
+Modelling bed occupancy and flow to improve operational efficiency has been a long term endeavour in the NHS. The health service is under intense pressure and 'coping but not coping' strategies (e.g. premature discharge, outlying medical patients on surgical wards, and negative feedback loops that reduce referrals) cause harm, reduce income, and increase strain elsewhere in the system.(E Wolstenholme, 2007)
+Commercial bed forecasting models are typically derived in US markets (e.g. TeleTracking/HospitalIQ), poorly adapted to the NHS, and are simulation based. Simulations are unable to distinguish true demand from the mitigated demand derived from the 'coping but not coping' strategies.
+Our approach brings three advantages. (1) We model actual demand not mitigated demand. (2) Our results are local (ward level) and real time rather than system level and strategic. This gives local teams the ability to make tactical responses, flex staffing and adjust schedules themselves. (3) We integrate with existing digital systems and use modern machine learning techniques to tune the forecasts to the available data and the local context.
+Surgical cancellations are miserable for the patient, wasteful for the system, and can cause harm. But there is a greater opportunity. Current NHS strategy recommends running a hospital at 85% occupancy for maximum efficiency, and above 92% is regarded as a tipping point where flows from upstream services (A&E etc.) are impaired. High quality length of stay (LoS) and bed demand forecasts will allow us to move away from this 'rigid occupancy target' toward the equivalent of 'just-in-time' manufacturing processes. Patients with greater LoS can be identified to downstream health and social care partners earlier. And periods when such patients cause congestion in the system can be managed by pre-emptively adjusting the incoming elective case mix to favour a higher turnover/shorter stay cases.
+
+
+## Notes
+- 300 words
+- point out that work on modelling and using flow has been going on in the NHS at system level for a long time but rare to find it at the local level: this gives a direct connection that might lead to better opportunitieswri
+- benefits
+	- operational efficiency (theatres >> hospital wide >> system wide); then back to the individual: discuss LoS w patients
+		- cancellations are miserable and wasteful
+		- cancellations cause harm
+		- theatre planning optimism
+		-	“We really shouldn’t list more than 12 cases a week because we have never managed to get more than 12 through theatres” 
+		- better use of beds instead of more beds; point out non-sensical approach of forcing a hospital to run at 85% occupancy to maintain flow (‘just-in-time’ health care)
+			- Our analysis finds a significant A&E performance tipping point at 92% bed occupancy using Sitrep data, which updates the historic view of 85% based on KH03 data.: talk about A&E performance as a downstream benefit
+			-	better: don't need 'rigid fixed occupancy targets of 85%' but ones that can flex based on current case mix and that allow us to move toward *efficiently* running hospitals at 90 or 95% occupancy
+		
+	- length of stay predictions: earlier warning of which patients in the system will create bottle necks -	draw out length of stay predictions as an additional benefit -	then consider targeting different care pathways for these long stay patients (earlier rehab planning etc)
+	- for social services and dc too
+	- cancellations are a symptom of crowding which leads tother harms such as ear;y discharge
+	- better income for the adopting hospital
+	- 
+
+- contrast to existing simulation approaches
+	- American vs UK solutions
+		-	teletracking: hospital IQ: https://www.hospiq.com/solutions/patient-flow/
+		-	epic: bed management but no patient flow solution
+		-	"We have shown that simulation does have a role to play in healthcare. But its impact is possibly less than would have been anticipated."
+- automated data entry
+	-	avoid data entry by using existing systems and infrastructure (ADT01/2/3/4 and Scheduling)
+
+	-	realtime view of hospital occupancy as an additional benefit
+
+
+-	points of intervention
+	-	theatre list planning (i.e. list order)
+	-	theatre scheduling (what cases to do on what day)
+	-	ward staffing
+-	non-theatre scenarios
+	-	scheduling chemo-therapy
+-	difficulty in actually assembling the information
+
+-	“All of this is too complex to be captured within a model” : building confidence in modelling solutions
+
+-	Eric Wolstenholme (2005) in “Coping but not Coping in Health and Social Care”
+
+-	can't just build more beds
+-	"better control systems can help to improve flow" NUffield
+-	information used is available real-time
+
+## Response
+
+

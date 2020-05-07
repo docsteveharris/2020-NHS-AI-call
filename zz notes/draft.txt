@@ -1,0 +1,106 @@
+Template application form
+
+- Programme: Accelerated Access Collaborative
+- Call: Artificial Intelligence Health and Care Award - Phases 1-3
+- Lead applicant: Steve Harris
+- Host organisation: UCLH
+- Research title:
+- Start Date:
+- Grant Duration: 26 months
+- End Date: November 2022
+
+## Project Title
+Scaling a learning, real-time bed demand forecasting model for critical care units in the NHS
+
+## Lead Organisation
+University College London NHS Foundation Trust and University College London
+
+## Lead Applicant
+Full name: Dr Steve Harris
+Position: 
+- Consultant in Critical Care and Honorary Senior Lecturer UCL
+- Health Foundation Improvement Science Fellow
+ORCID iD: 0000-0002-4982-1374
+
+## Stage of Development
+Phase 2: Product development and clinical evaluation
+
+## Agreement to have application passed on to medium stage AI solution
+Yes
+## Commitment to relevant standars
+- AI Code of Conduct
+- NICE Evidence Standards Framework
+- NHS Digital Standards for commissioning or developing Personal Health Records
+
+## AI Solution Category
+System efficiency
+
+## Project Duration
+26 months
+## Proposed start date if funded
+1 September 2020
+## Total Project Costs
+£XXX
+## NHS Support, Treatment or external (not NHS) intervention costs
+£0
+
+# Section 2: Plain English Summary
+450 words
+# Section 3: The Project
+## NHS unmet clinical need and market plan
+
+> Please describe the problem that you are addressing with your AI solution.
+> Provide a clear explanation of the health or social care problem to be addressed, the impact on patients as well as health and social care services, and how this development work would fill a demonstrable evidence gap. Please also provide a description of how your AI solution will support the [NHS E/I Long Term Plan](https://www.longtermplan.nhs.uk/online-version/overview-and-summary/), [NHSX strategic priorities](https://en.wikipedia.org/wiki/NHSX) and/or wider government priorities including the Industrial Strategy grand challenges or resource efficiency. Please report market size, any related trend or forecast, patient population affected, NHS cost burden, state of the art.
+
+- see https://www.nuffieldtrust.org.uk/news-item/going-digital-three-crucial-areas-for-nhs-policy
+- https://www.gov.uk/government/speeches/better-tech-not-a-nice-to-have-but-vital-to-have-for-the-nhs
+
+
+300 words
+
+More than 1000 patients have elective surgery cancelled *every week* in the NHS, causing anxiety for patients and families.[Wong 2017] Cancellations are inefficient as patients and teams prepare for surgery at the wrong time. Cancellations 
+also cause harm where pain relieving treatment is delayed, or therapeutic opportunities missed.
+Bed capacity is the primary reason for these cancellations. Yet bed capacity fluctuates. Operational efficiency depends on an accurate view of near-future demand, but this is challenging because a hospital is a complex system with many interdepartmental flows, and individual emergencies seem unpredictable. This is challenge can be met by modelling and Artificial Intelligence.
+In 2012, we built a demand forecasting solution that supports operational teams to reschedule elective surgery and reallocate resources in a timely fashion. This avoids last minute cancellations and bed shortages. We deployed and customised this for a single ward: a paediatric cardio-thoracic critical care unit at Great Ormond Street Hospital. However, because of the state of technology in 2012, the solution could not be scaled, nor adapted to work in different institutions.
+In 2018, in partnership, with University College Hospital, we generalised the mathematics of the solution and built a prototype that could now scale. We now seek support to (1) upgrade the AI component of the model so that it can learn from both patient clinical characteristics and staffing constraints, and (2) to harden the code base and meet modern interoperability standards. Our proposed solution would have technological tiers so that both sites with a fully integrated electronic health record (EHRS), and those with a minimal electronic patient administration (PAS) could benefit. 
+Accurate demand forecasts will allow local teams to better plan, to find innovative local solutions to predicted bottlenecks. Improving operational efficiency will reduce costs and waste, and minimising cancellations will reduce anxiety and suffering.   
+
+##  The proposed innovation
+
+> Please describe your AI solution, explaining the level of innovation, its competitive advantage and potential barriers to adoption.
+> Please provide a clear description of your AI solution including details of its functionality, structure and intended use. Explain the level of innovation of the proposed technology and the intellectual property position, accompanied by a review of the existing evidence surrounding similar products that may already be on the market, and of any relevant ongoing research in the area of focus. A consideration of the proposed barriers to clinical adoption must also be clearly articulated
+
+300 words
+
+Competitive advantage: We have built a local bed demand forecasting solution that generates near future (within the next 7 days) predictions of bed demand for a specific ward. Importantly, we focus on predicting bed *demand* rather than bed *utilisation*; the latter is the more common AI or simulation task but less informative. Predicting that a fully utilised hospital ward will again be full provides no novel insights. Moreover, the prediction is downstream of the system response: staffing will already have been flexed, or patients cancelled. Demand predictions are upstream of the response, and create a window for intervention. Patients can be forewarned or rescheduled, and staffing adapted to match that demand.
+
+Barriers to adoption: We have built two versions of a bed demand forecasting solution. The first used patient level characteristics to improve the demand forecast, but was unable to adapt to new settings. Our second abandoned the patient level predictive features and uses network theory to learn future demand for ward beds. This generalises to new settings but in a courser less refined manner. This was a deliberate step, and we now are now ready to combine the best of the two approaches using two new partners:
+
+- a machine learning team led by Dr Ken Li at the UCL Institute of Health Informatics who will re-work the CART (regression based) predictions in the first model to use deep neural nets for continuously updating length-of-stay predictions
+- a clinical informatics team at University College London Hospital led by Dr Steve Harris that have built infrastructure  to permit deployment of the product to organisations at varying levels of digital maturity (e.g. Healthcare Information and Management Systems Society (HIMSS) Levels 0 and greater). 
+
+We believe that together these solutions produce a unique competitive advantage. The investment we seek is to ‘industrialise’ our existing hand crafted solution so that within a short time frame we can see the solution widely adopted and delivering benefit for the NHS.
+
+## Benefit to patients, the NHS and the wider population
+
+> Please describe how your solution will change clinical or social care practice and provide benefit to patients and potential cost savings.
+> Please provide a clear case of how the proposed device, technology or intervention will change clinical or social care practice and provide benefit to patients (such as reduced mortality or morbidity, improved quality of life, reduced misdiagnosis, improved patient outcomes and experiences). Potential cost savings for the NHS should also be provided, along with details of the expected involvement of patient and/or public representatives during the product development process.
+> Please note that your AI solution must have the potential to be cost effective and meet at least one of the following criteria
+􏰍 - Improvement in patient outcomes
+􏰍 - Improvement in patient experience
+􏰍 - Improvement in operational efficiency
+
+300 words
+
+## Project Plan
+> Please list individual work packages, including deliverables and milestones, the key risks and how these will be mitigated.
+> The project plan should include the following:
+􏰍> The individual work packages within your project, including deliverables and milestones (a Gantt chart indicating the schedule for the completion of work, must be attached in the supporting information). Work packages may focus on, for example, technical, clinical or commercial aspects of the project.
+> A description of the main hurdles to be overcome technically, clinically and commercially.
+> The key risks to your project (including technical, clinical, financial and IP risks) and the steps you will take to manage and mitigate these risks. Ensure that these risks are considered when defining milestones (the go/no go points for your project).
+300 words
+
+## Please attach a Gantt Chart
+## Spending plan
+# Management Team
+## Applicant and team details

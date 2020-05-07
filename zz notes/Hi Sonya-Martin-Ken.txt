@@ -1,0 +1,32 @@
+Hi Sonya/Martin/Ken
+
+Thanks for the comments.
+
+I've now saved the draft document on UCL's one drive platform in case it works better than the google doc!
+
+https://liveuclac-my.sharepoint.com/:w:/g/personal/rmhkarr_ucl_ac_uk/ETpyX4tQKFpCr6rHsVKM61kBIfJE8Ep0i-GoNHih17Qk5A?e=Yfxlsu
+
+Here's another go at trying to rephrase the idea.
+
+So I think we have 2 models - collapsing the last 2 that Martin outlines
+
+- GOSH CICU
+- GOSH/UCLH network
+
+If I understand rightly then it was always an ambition to include additional features in the network model. This is where we bring in the ML/AI. Rather than CART analyses we lean on Ken and his expertise to use a richer set of features. These modify the transition probabilities of the network model.
+
+We could also put in a component of work as per Sonya's comment that used staffing and resource information.
+
+Then we build this in a modular fashion that would permit deployment to institutions with varying levels of digital maturity.
+
+1. Basic flow information only / not realtime but would work off a standard reporting database a calendar day in arrears
+2. Flow information plus enhanced clinical parameters / not realtime
+3. Flow information plus enhanced clinical parameters / realtime FHIR interface
+
+We then use Martin's text and user driven design so that we specifically target a user group (bed management teams who are acutely placing patients into bed and making decisions about elective surgical scheduling in the near future). We also generate an evaluation data to show that the model predictions are meaningful (rather than accurate) and suggest opportunities for intervention. I suspect we can't evaluate operational performance until the above tasks are complete.
+
+Please kick this version around again, and then I'll use this both for the google form and for the formal submission.
+
+@Sonya: I won't forget to add in the RSE and my costs to your initial quote.
+
+Steve
