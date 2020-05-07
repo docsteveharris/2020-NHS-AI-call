@@ -1,0 +1,39 @@
+# Project plan
+Please list individual work packages, including deliverables and milestones, the key risks and how these will be mitigated. The project plan should include the following: 􏰍
+- The individual work packages within your project, including deliverables and milestones (a Gantt chart indicating the schedule for the completion of work, must be attached in the supporting information). 
+- Work packages may focus on, for example, technical, clinical or commercial aspects of the project. 
+- A description of the main hurdles to be overcome technically, clinically and commercially. The key risks to your project (including technical, clinical, financial and IP risks) and the steps you will take to manage and mitigate these risks. 
+- Ensure that these risks are considered when defining milestones (the go/no go points for your project). 
+
+## Response
+
+## Notes
+Milestones
+1. Deployable network modelproduct / basic quality / rewritten typed language / factor out modelling algorithms from data preparation / and presentation
+2. Add in LoS inputs 
+3. Gather evidence of safety by running in shadow mode / develop metrics of coping not coping strategies to evaluate
+4. User model for interaction
+
+Abbreviations: WP (Work package); LoS (Length of Stay); PAS (Patient Administration System)
+
+### WP1: Digital implementation
+Lead: Dr Steve Harris/EMAP team
+Deliverable: Update existing network model software to align with ISO 25010:2011 standards (Reliability/Efficiency/Security/Maintainability); ensure interoperability at varying levels of digital maturity (HIMSS 0-7) using HL7 v2.3+ and FHIR. Initiate Quality Management System (QMS) and Medical Device Regulation compliance
+Risk: (1) Software application: We already have a working version of this model (written in Python) deployed against a Java stack ingesting HL7v2.3 with good uptime. Properly resourced we are confident we can meet these standards. (2) QMS expertise
+Mitigation: Collaboration with Prof Dean Barratt (WEISS, UCL) and existing QMS expertise
+### WP2: 
+Lead: Dr Sonya Crowe/Dr Steve Harris
+Deliverables: (1) Define user requirements and map how model fits with existing decision processes to generate actionable insights (2) Rolling programme of evaluations running in shadow mode escalating from (i) network model to (ii) additional time fixed inputs to LoS predictions to (iii) additional time varying inputs to LoS 
+Risk: Access to staff
+Mitigation: Existing work group at UCLH includes Head of Operations / good working relationship / Modeller in Residence approach+experience
+### WP3: Staffing/resource constraints
+Lead: Dr Sonya Crowe/CORU team
+Deliverables: Extend mathematics of network model to manage staffing/resource constraints
+Risk: Lack of historical staffing data
+Mitigation: eRoster information confirmed available in UCLH Archive Data Store (ADS)
+### WP3: Length of stay ML predictions
+Lead: Dr Kezhi Li/UCL IHI team
+Deliverable: LoS predictions based on clinical features (e.g. demographics, clinical specialty, NEWS score time-series etc.)
+Risk: Sites without integrated EHRS will be unable to provide data in realtime and at scale
+Mitigation: Network model as standalone; extract features from HL7 ADT streams from common PAS providers
+

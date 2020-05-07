@@ -1,0 +1,9 @@
+Management team
+
+The team have already worked together on implementing the existing bed models. They have a track record of delivering health care focused informatics and AI projects, and many years of experience of working within the NHS.
+
+- Dr Steve Harris (SH) (UCLH): a clinician with deep experience of embedded NHS informatics platform design, risk prediction and issues around bed management. He has co-led the development of the Experimental Medicine Application Platform (EMAP) at UCLH. A £2.4m investment from UCLH Charity to enable realtime *translational* data science in the NHS. It parses HL7 (a ubiquitous interoperable health care message) into a live database paired with a modern machine learning stack. 
+- UCL Research Software Engineering (RSE): The first team of its kind in the UK and our collaborator for the last 5 years, they have extensive experience in live message streaming in the NHS, and will host the post-doctoral software engineer post. SH and UCL have collaborated for > 5 years (including the NIHR Health Informatics Collaborative Programme)
+- Dr Sonya Crowe (SC) and Professor Martin Utley (MU) (UCL CORU): methodologists and operational researchers with >30 years combined experience of developing models to support decision making in healthcare. SC is a Health Foundation Improvement Science Fellow, and SC/MU implemented the 'modeller in residence' programme at GOSH and UCLH.
+- Dr Kezhi Li (KL) (UCL Institute of Health Informatics): a lecturer of AI in healthcare. and healthcare problems using machine learning. His research interests lie in biomedical multi-variant time series prediction, real-time healthcare decision making system development using machine learning, smart phones and wearables. He has published over 50 peer-reviewed publications including best paper award at workshop in NIPS.)
+

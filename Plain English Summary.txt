@@ -10,6 +10,7 @@ Our approach is distinct from most bed modelling approaches in that we deliver f
 This creates a window for local teams to better use their existing bed capacity by flexing staffing levels, or rescheduling surgical operating lists. More importantly, local teams are enabled to innovate: to find local solutions to predicted bottlenecks and to better use their existing bed capacity. 
 
 We now seek support to
+
 1. Upgrade the AI component of the model so that it can learn from a wider range of patient clinical characteristics (lab results, clinical history, vital signs etc.) 
 2. To extend the mathematics to include staffing constraints that must also influence bed availability. 
 3. To encapsulate the mathematical model in a software application that is resilient and 'connectable' to hospitals across the NHS (‘interoperability’). Our application would enable both hospitals using predominantly paper notes (most nonetheless have an electronic patient booking system) and hospitals that are already fully paperless.
