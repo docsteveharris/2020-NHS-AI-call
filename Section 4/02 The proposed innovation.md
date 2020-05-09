@@ -8,6 +8,8 @@ build prototype local case study working with ops centre to figure out what outp
 might be appropriate to define aims/objectives
 
 ?Jon Gillham as the dev?
+
+> Provide a clear description of your AI solution covering comprehensive details of its functionality, structure and intended use. Explain the level of innovation of the proposed technology and the intellectual property position, accompanied by a review of the existing evidence surrounding similar products that may already be on the market, and of any relevant ongoing research in the area of focus. A consideration of the proposed barriers to clinical/social adoption must also be clearly articulated.
 ---
 
 ### Competitive advantage: 
