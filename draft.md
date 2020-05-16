@@ -2,7 +2,7 @@
 TODO: complete online; no specific prose needed here
 
 # Plain English Summary (450 words)
-TODO: 2020-05-15: prose below is as per EoI; update in light of modifications whilst writing project plan
+TODO: 2020-05-15: prose below is as per EoI; still to update after project plan complete
 
 More than 1000 patients have elective surgery cancelled every week in the NHS, causing anxiety for patients and families.(D Wong, 2017) Cancellations are upsetting, inefficient, may cause harm, delay treatment, and let slip therapeutic opportunities. Bed capacity is the primary reason for these cancellations. Yet bed capacity fluctuates. Operational efficiency depends on an accurate view of near-future demand, but this is challenging because a hospital is a complex system with many interdepartmental flows, and individual emergencies seem unpredictable.
 
@@ -68,7 +68,7 @@ The next stage prototype deliver the following:
 3. A robust software package for reliable deployment
 4. A user interface that permits rapid adoption with minimal training needs for front line clinical staff
 
-The target market is NHS acute hospital trusts. The application would be installed by the organisation, and then made available to all wards, including critical care, as well as the bed management and surgical pathway teams. Where digital maturity is such that HL7 or FHIR interfaces are not exposed, the application could be deployed to key wards such as critical care with direct (manual) data entry. 
+The target market is NHS acute hospital trusts. The application would be installed by the organisation, and then made available to all wards, including critical care, as well as the bed management and surgical pathway teams. Where digital maturity is such that HL7 or FHIR interfaces are unavailable, the application could be deployed to key wards such as critical care with direct (manual) data entry. 
 
 We will work with UCL/UCLH technology transfer teams to develop the correct business model going forwards.
 
@@ -80,24 +80,37 @@ Modelling bed occupancy and flow to improve operational efficiency has been a lo
 
 Commercial bed forecasting models are typically derived in US markets (e.g. TeleTracking/HospitalIQ), poorly adapted to the NHS, and are simulation based. [TODO: before critiquing simulations, explain what they are]Simulations are unable to distinguish true demand from the mitigated demand derived from the 'coping but not coping' strategies.
 
-Our approach brings three advantages. (1) We model actual demand not mitigated demand. (2) Our results are local (ward level) and real time rather than system level and strategic. This gives local teams the ability to make tactical responses, flex staffing and adjust schedules themselves. (3) We integrate with existing digital systems and use modern machine learning techniques to tune the forecasts to the available data and the local context.
+Our approach brings advantages to the end user, and to the organisation. For the end user, (1) we model actual demand not mitigated demand. (2) Our results are local (ward level) and real time rather than system level and strategic. This gives local teams the ability to make tactical responses, flex staffing and adjust schedules themselves. For the organisation, the system can installed on to HL7 integration engines that are found in all NHS hospitals. These integration engines process messages from disparate electronic systems including the Patient Administration System (PAS) and laboratory orders and results. Hence even in organisations where FHIR interfaces are not yet exposed, it is possible to build a fully electronic bed forecasting system for administrative and laboratory data.
 
-Surgical cancellations are miserable for the patient, wasteful for the system, and can cause harm. But there is a greater opportunity. Current NHS strategy recommends running a hospital at 85% occupancy for maximum efficiency, and above 92% is regarded as a tipping point where flows from upstream services (A&E etc.) are impaired. High quality length of stay (LoS) and bed demand forecasts will allow us to move away from this 'rigid occupancy target' toward the equivalent of 'just-in-time' manufacturing processes. Patients with greater LoS can be identified to downstream health and social care partners earlier. And periods when such patients cause congestion in the system can be managed by pre-emptively adjusting the incoming elective case mix to favour a higher turnover/shorter stay cases.
+This brings benefit to the surgical patient otherwise suffering on-the-day cancellation. But there is a also a greater opportunity. Current NHS strategy recommends running a hospital at 85% occupancy for maximum efficiency, and above 92% is regarded as a tipping point where flows from upstream services (A&E etc.) are impaired. High quality length of stay (LoS) and bed demand forecasts will allow us to move away from this 'rigid occupancy target' toward the equivalent of 'just-in-time' manufacturing processes. Patients with greater LoS can be identified to downstream health and social care partners earlier. And periods when such patients cause congestion in the system can be managed by pre-emptively adjusting the incoming elective case mix to favour a higher turnover/shorter stay cases.
 
 ## The Proposed Innovation
 
 ### Competitive advantage: 
 
+Our competitive advantage comes at three levels
+
+1. Embedded joint academic-clinical team
+2. Modelling strategy
+3. Digital infrastructure (EMAP)
+
+#### Joint academic-clinical team
+We are a team of clinicians (SH/TB) who have built and deployed a realtime data science platform at UCLH (EMAP). We have a long standing collaboration with UCL's Research Software Engineering team, and the highest commitment to sustainable and robust software development practices. We have worked with UCL's Clinical Operational Research Unit (SC/MU) for several years. CORU have extensive experience in both methodological innovation for operational research, and embedded clinical problem solving (e.g. the 'modeller' in residence programme).
+
+#### Modelling strategy
 We have built a hyper-local realtime bed demand forecast that generates ward level predictions of bed demand over the subsequent week.  We focus on predicting bed *demand* rather than bed *utilisation*; the latter is the more common AI or simulation task but less informative.  Discrete Event Simulation (DSE) is the approach adopted by the majority of existing commercial bed forecasting approaches (e.g. Teletracking & Hospital IQ, GE HealthCare's Digital Twin etc.) However, simulations can only describe observed behaviour.
 We eschew predictions under the known strained network and evaluate the 'what might have been' (counterfactual) scenario to gain novel insights.  Specifically, *demand* predictions are upstream of the response, and create a window for intervention (changing discharge priorities, flexing staffing, re-organising schedules etc.). We also build a bottom-up (local) forecast that starts at with the ward rather than hospital. A simulation might be helpful to a the executive team planning bed flows through a new building. However, local forecasts that are placed in the hands of the ward team, surgical pathway coordinators, and theatre planners offer a chance to actually improve operational efficiency.
 
+#### Digital Infrastructure (EMAP)
+Over the last two years, UCLH has not only acquired a fully integrated Electronic Health Record System (Epic EHRS), but we (SH/TB/JC) have built a real-time data processing platform (EMAP) that exposed the information in the EHRS and other systems for research and innovation. This has been done with modern digital standards at its core. HL7 message streams are parsed, data is normalised to the OMOP Common Data Model, and FHIR aligned applications are on the roadmap for 2020. This means that we can move rapidly from concept to prototype, and indeed we were able to deploy CORU's non-Markovian model for the ICU at UCLH in less than a month.
+
 ### Barriers to adoption: 
 TODO: see existing list under market plan and discuss here
+
 1. A set of learned model coefficients that accelerate deployment with a smaller training data set at a new location.
 2. An interface that permits adaption based on key local features
 3. A robust software package for reliable deployment
 4. A user interface that permits rapid adoption with minimal training needs for front line clinical staff
-
 
 ## Patient & public involvement (end users involvement)
 TODO: end users are hospitals and staff; can cite user centric design; 
@@ -105,7 +118,6 @@ TODO: letter of support from BRC? Alison Clements @ UCLH? or other UCLH staff?
 TODO: ask @Sonya or @Martin for contacts/suggestions
 
 ## Detailed project plan
-
 The research is organised in NN work packages (WP). Each is shown with the number of man-months (MM), the deliverables (D), risks (R) and mitigations (MiT) and milestones (MS). These are then mapped to the attached Gantt chart. Against each of these we have proposed success criteria for three different operational scenarios.
 
 - **medical ward**: booking staff for the following shift
@@ -114,48 +126,50 @@ The research is organised in NN work packages (WP). Each is shown with the numbe
 
 Theses are intended to ensure the application development is focused on delivering achievable improvement in organisational performance, and therefore define the product characteristics.
 
+The work packages are
+
+1. Set-up and governance
+2. Application foundation
+3. Application integration
+4. AI development
+5. Application design
+6. Model evaluation
+7. Quality Management
+
+These work packages are aligned to the following aims and objectives.
+
 ### Aims and objectives
 
 #### Need
-TODO: cite justifications for our approach here (1) demand (beds/staff/side rooms) (2) local use and local data capture (3) digitally adapted
 
 Admissions in NHS hospitals are managed by individual 'pathway' teams (e.g. colorectal surgery, orthopaedics etc.). These decisions are made without sight of their impact on patient flow both locally (on that pathway) and more widely on the hospital. This results in congestion, on-the-day cancellations, premature discharges, stretched staffing patterns and potential patient harm. Where bed forecasts are performed, they are rarely done at the ward level. The appropriate information is then not in the hands of the local decision maker generating a 'learned helplessness' wherein staff assume that patient congestion is not something over which they can exert control. 
 
 #### Aim 
 TODO: rewrite para specifcally starting from existing opportunity
 TODO: ? levels: hand entry as per existing app / HL7 /FHIR
-ASK: Sonya/Martin: can we rebuild the model so that it estimates demand for resources other than beds. For example, if we conceptually subdivided the beds within a ward into groups based on nursing intensity, and then saw the patients moving between those 'subwards' then is it possible we could then recover the nursing demand. Ditto if we divide the wards into open bays and siderooms to account for infection control.
+TODO: @Sonya/Martin: can we rebuild the model so that it estimates demand for resources other than beds. For example, if we conceptually subdivided the beds within a ward into groups based on nursing intensity, and then saw the patients moving between those 'subwards' then is it possible we could then recover the nursing demand. Ditto if we divide the wards into open bays and siderooms to account for infection control.
 
 We will generate real-time, hyper-local (ward level), short term forecasts of bed demand. These will be provided within a modular application that adapts to the digital maturity level of the host organisation, presents an EHRS agnostic interface, and allows extensions to manage COVID-19 related issues. Specifically, we will extend the model to forecast staffing demand, and demand for isolation beds.
-The same forecasts will be visible by the hospital bed management team allowing informed negotiation, and better use the constrained bed resource. 
+The forecasts will be built in an application designed for the ward leadership team. They are already manage their own staffing and admissions but now they will have a tool that allows them to plan their work. Moreover, the same forecasts will be visible by the hospital bed management team allowing informed negotiation, and better use the constrained bed resource across an organisation. 
 
 #### Objectives
 TODO: revisit when you have done the details on the work packages
 
-- extension of the model to use generic inpatient level administrative and clinical features (e.g. demographics, clinical speciality, laboratory measures)
-- an evaluation of the performance of the model across of a range of common scenarios (e.g. different wards, different prediction horizons, different demand scenarios)
-- a piece of software the incorporates the existing model but hardened to meet state of the art standards for reliability and interoperability (e.g. code coverage, continuous integration, FHIR/HL7 interface etc.)
+- to build a robust software application that accepts both automated data feeds, and direct user data entry and reports both current bed status, and forecasted bed demand
+- to build the model with a rigorous quality management approach so that can achieve the relevant regulatory approvals for deployment into the NHS
+- to perform continuous user testing so that the model and the application are producing 'actionable insights' relevant to the local ward decision makers
+- to rebuild the existing length of stay model to use generic inpatient level administrative and clinical features (e.g. demographics, clinical speciality, laboratory measures) that would be available in a wide range of organisations
+- to update the AI component of the existing model to improve demand predictions 
+- to extend the domain of the model to offer predictions of staffing demand and infection control requirements
+- to adapt the model to support the COVID-19 pandemic response (e.g. separate models for blue/green pathways)
 
-We will refactor the application to separate the forecasting model from the interface from the data presentation
-- the *data presentation* layer will allow hand entry, HL7, and FHIR interfaces
-- the *modelling* layer will be run with a minimum feature set that can be expanded based on the data presented
-- the *user interface* layer designed to support decision making built built as a separate module that can support the model but could be swapped out for interfaces provided by existing clinical information systems
-
-TODO: green and blue pathways
-We will upgrade the AI component of the model
-- We will develop model features that are appropriate for the COVID-19 pandemic response
-- forecasts that incorporates infection control constraints
-- forecasts that respond to levels of pandemic readiness (TODO: change
-  incoming stream to reduce LoS for rapid step-up/down)
-
-We will perform user testing
-- We will prepare a quality management file ...
 
 ### Individual work packages
 
 The project plan below serves two purposes
 - itemising the work therefore justifying the cost and the timeline
 - explaining the product features and design decisions
+
 The grant funds two 'workers' (2FTE), a 4 person project team (0.7FTE in total), plus consultancy support. The first 'worker' (W-AI) is a post-doc who will update and extend the AI model, and will be supervised by SC/MU/KI (UCL CORU and IHI). The second worker (W-SE) is a *s*oftware *e*ngineer from UCL's Research Software Engineering (RSE) team supervised by SH/JC with consultancy time supporting Quality Management and Health Care design.
 
 #### WP-1: Governance / PPI / Set-up
@@ -226,7 +240,6 @@ AI solutions need to learn from their environment, but they can only learn if th
     - nurse-in-charge uses the application to estimate demands for bank staff over the next few days
     - theatre coordinating team use the application to access data on available beds for the following days theatre cases requiring critical care
 
-
 ##### Application milestone
 NOTE: what you’d see if you stopped the project at this time
 
@@ -236,7 +249,8 @@ The web application shows
 - a list of current patients
 - a list of expected admissions by day over the next week
 - for a surgical ward these would be named patients (and procedures) and unnamed ‘emergencies’
-    - for a medical ward these would be unnamed ‘emergencies’
+- for a medical ward these would be unnamed ‘emergencies’
+
 The list is populated by hand and contains nothing more than patient identifiers (hospital number etc.), date of admission (or expected date of admission for expected admissions), and expected length of stay (LoS). This generates a deterministic view of future bed status.
 NOTE: LoS predictions simple ward level mean (not modelled); Users interact to correct data and adjust predictions (LoS)
 
@@ -351,7 +365,7 @@ TODO: @Ken: please comment
 The LoS model uses Classificaion and Regression Trees (CART) which were an appropriate choice given the technology in 2012, but have now been superseded. We will evaluate modern machine learning techniques that handle wider ranges of time-fixed and time-varying inputs (deep neural nets, and Long Short Term Memory networks for time-varying features etc.) We will explore the use of a wider range of clinical features (demographics, clinical specialty, labelled structural descriptions of hospital infrastructure, vital signs and clinical laboratory data), and we will ensure that the models are performant at varying levels of digital maturity. Where modern techniques outperform simpler regression models, it is possible that the computational cost will be prohibitive. For example, it may not be feasible to see the model deployed if it must be hosted on GPU enabled infrastructure. We will evaluate the trade-off between model performance and digital infrastructure requirements to ensure the application is widely deployable. Transfer learning (see below) may provide a partial solution.
 
 2. Develop a transfer learning component 
-TODO: @Ken: is this sensible
+TODO: @Ken: is this sensible?
 The initial model will be trained on the full patient record available at UCLH. This includes > 1yr of data from our integrated EHRS plus decades of data from previous PAS and laboratory systems. Even when we limit the features to those that are likely to be available at a wide range of different sites, it is likely that the original UCLH model will be richer and more complete. 
 We can imagine a scenario now when the application is deployed to a new institution with either a much reduced or absent training data set. Transfer learning[@ref] will allow the parameters derived from the UCLH model to ‘kick-start’ predictions at the new institution. As local data then accumulates, the model can update and and adapt its performance.
 We will simulate this scenario locally by withholding historical data from different sub-speciality wards from the model, and then using transfer learning to generate predictions. 
@@ -389,12 +403,21 @@ As per WP-3 plus
     - theatre teams are confident to start cases before the 9am bed meeting because bed demand was know in advance
 
 ##### Application milestone
+The web application will now be able to accept a range of different models, and report a range of different outputs. The original length of stay forecasts, and demand models can replaced without loss of application functionality with upgraded versions, or alternative forecasting 'tasks' (staffing, infection control bed subtypes etc.) can be chosen.
+The existing patient status view now captures, and reports the relevant inputs (organ support, nursing intensity, or infection control risks etc.)
 
 ##### Model milestone
+- Model performance is improved for bed demand
+- Forecasts of new wards with limited training data are better calibrated than when using a standard 'drop-in' model approach
+- Alternative predictions are available as per (3) above
+- Model performance is appropriate and meaningful in different COVID-19 scenarios
+
 ##### Risks&Mitigation
+TODO: add below
 * Data access & Electronic Staff Record access already in use by partner at UCLH
 * Mathematics & CORU world leading Operational research unit with decades of experience in this field 
 ##### Figures
+
 ##### References 
 
 Special attention will be paid to two specific sources of information that will affect capacity.
@@ -423,8 +446,8 @@ TODO:
 - IP and commercial evaluation  
 
 
-References
-- hhttps://www.interaction-design.org/literature/topics/user-centered-design
+##### References
+- https://www.interaction-design.org/literature/topics/user-centered-design
 - [The Four Fundamental Principles of Human-Centered Design and Application](https://jnd.org/the-four-fundamental-principles-ofhuman-centered-design/)
 
 #### WP-x: Model evaluation
@@ -435,7 +458,7 @@ Model evaluation, safety and reliability data
 Comparison against existing models in general use
 Each testing cycle deploys the model, and then works with operational and clinical end users to build outputs that provide insights to better manage flow
 
-#### Define early success criteria
+Define early success criteria
 
 Criteria
 - pre-forecasting success: just timely information available to all users of the *current* state: i.e. who is in what bed at what time
