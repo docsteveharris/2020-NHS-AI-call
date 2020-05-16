@@ -347,16 +347,51 @@ TODO: use staff/resource constraints as an example of capturing different inform
 We will explore four areas for upgrading the AI component of the model.
 
 1. Upgrade the LoS predictions using modern ML tools
-We will augment model 2 with the clinical features that were used to construct model 1 but update that model using modern machine learning techniques that handle wider ranges of time-fixed and time-varying inputs (deep neural nets, and Long Short Term Memory networks for time-varying features etc.) We will explore the use of a wider range of clinical features (demographics, clinical specialty, labelled structural descriptions of hospital infrastructure, vital signs and clinical laboratory data), and we will ensure that the models are performant at varying levels of digital maturity.
+TODO: @Ken: please comment
+The LoS model uses Classificaion and Regression Trees (CART) which were an appropriate choice given the technology in 2012, but have now been superseded. We will evaluate modern machine learning techniques that handle wider ranges of time-fixed and time-varying inputs (deep neural nets, and Long Short Term Memory networks for time-varying features etc.) We will explore the use of a wider range of clinical features (demographics, clinical specialty, labelled structural descriptions of hospital infrastructure, vital signs and clinical laboratory data), and we will ensure that the models are performant at varying levels of digital maturity. Where modern techniques outperform simpler regression models, it is possible that the computational cost will be prohibitive. For example, it may not be feasible to see the model deployed if it must be hosted on GPU enabled infrastructure. We will evaluate the trade-off between model performance and digital infrastructure requirements to ensure the application is widely deployable. Transfer learning (see below) may provide a partial solution.
+
 2. Develop a transfer learning component 
+TODO: @Ken: is this sensible
+The initial model will be trained on the full patient record available at UCLH. This includes > 1yr of data from our integrated EHRS plus decades of data from previous PAS and laboratory systems. Even when we limit the features to those that are likely to be available at a wide range of different sites, it is likely that the original UCLH model will be richer and more complete. 
+We can imagine a scenario now when the application is deployed to a new institution with either a much reduced or absent training data set. Transfer learning[@ref] will allow the parameters derived from the UCLH model to ‘kick-start’ predictions at the new institution. As local data then accumulates, the model can update and and adapt its performance.
+We will simulate this scenario locally by withholding historical data from different sub-speciality wards from the model, and then using transfer learning to generate predictions. 
+
 3. Alternative predictions (staff, bed subtypes)
-Extension of the model to include staffing/resource constraints wherein current models understand limitations with respect to physical capacity but often staffing/resource is the more important functional limitation.
+TODO: @Sonya/Martin: please comment
+
+Forecasting demand for resources other than physical bed capacity will be explored. Specifically, we will investigate extensions of the model that label the beds according to staffing requirements, or infection control standards. For example, we can imagine that the critical care unit is composed of a mixture of beds nursed at 1:1 (Intensive Care) to 1:2 (High Dependency Care) ratios. If we relabel our training data, then the ward can be conceptually subdivided into HDU and ICU compartments and LoS and transitions between each ‘sub-ward’ can be modelled. This can then be expressed as a staffing demand forecast to the end user. A similar approach can be taken by assigning beds certain infection control standards (e.g. side-room  vs open bay beds). 
+Predictions derived from these more expressive models will enhance the quality and the range of responses to the demand forecast. For example, acute pressure on siderooms may require re-scheduling of admissions or different cohorting strategies even if the over-all bed demand is manageable.  
+Further improvements may be made by using the electronic staff record do describe the actual nursing staff allocated to each ward each shift, or using staff interactions with the EHRS as a proxy for actual nursing levels.  
+
 4. Modelling extensions for COVID-19
 
-Success criteria
-Application milestone
-Model milestone
-Risks&Mitigation
+Finally, we will explore different modelling strategies to support end users during the COVID-19 pandemic. This will include but not be limited to
+
+- tracking COVID-19 status: specifically, these patients will have different predicted lengths of stay, and different transition pathways within a model.
+- blue versus green pathways: patient flow and movement within the same physical footprint will be very different depending on whether the wards are part of a blue (COVID-19 positive), green (COVID-19 negative) or non-pandemic pathway.  
+- COVID-19 pandemic resource
+
+###### Success criteria
+As per WP-3 plus
+
+- **All scenarios**
+		- model accuracy improves so that there are fewer manual corrections
+		- demand predictions are subdivided by bed type (side room versus open bay)
+    - dashboard reports staff-to-patient by bed type
+- **medical ward**: booking staff for the following shift
+    - staffing predictions adapt for nursing workload (e.g. proportion of patients on intravenous medications etc.)
+   - **surgical ward**: calling patients up for surgery
+		- surgical admissions requiring specific bedtypes are labelled and forecast distinctly. Scenarios such as surgical cases with MRSA requiring siderooms are handled 
+- **critical care**: giving the go-ahead for surgery that requires ICU
+  		- ICU admissions requiring specific bedtypes are labelled and forecast distinctly (as above). 
+   - theatre coordinating team move their planning bed planning discussions forward by 24-48 hours as the predictions become more reliable
+   - on-the-day cancellations because of lack of ICU bed capacity reduce
+   - theatre teams are confident to start cases before the 9am bed meeting because bed demand was know in advance
+
+###### Application milestone
+
+###### Model milestone
+###### Risks&Mitigation
 * Data access & Electronic Staff Record access already in use by partner at UCLH
 * Mathematics & CORU world leading Operational research unit with decades of experience in this field 
 Figures
@@ -468,5 +503,5 @@ NOTE: Present a specific strategy for adoption of the technology into the NHS. D
 # Other supporting roles - signatories
 
 # Director of finance signature against the declaration
-
 # 
+
