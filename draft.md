@@ -210,12 +210,12 @@ Each development cycle deploys the application and the model, and then works wit
 1. Generate the basic structure of the application to allow iterative user testing and development (build-test-learn)
 
 The existing application runs in an Excel spreadsheet. This precludes use of modern ML techniques, realtime updates, or managing data at scale. But it does allow direct user interaction, and is a tool that all staff understand. Developing in practice rather than theory by iterating from the Excel sheet to a basic web application will generate an application that is actually ‘used in practice’ rather than one that is more perfect in theory. This will be the foundation for all future user development, will allow local data capture (see below), and be the default for less digitally mature environments.
-	
+
 2. Build in a process for ward level data capture and updates
 
 AI solutions need to learn from their environment, but they can only learn if they have the right data. The most valuable data is local knowledge or ‘end of the bed information’. For example, your model might use EHR data to predict that a 65 year old recovering from hip surgery will have an expected LoS of 10 days. A nurse might look at a patient and realise that this patient is ‘flying’ and will be discharged in 5 days. We will build ‘data-updating’ into the application from the outset. This might capture local estimates (e.g. LoS) or specific attributes that affect flow (infection control status, discharge blockers such as need for social care packages).
 
- 
+
 ##### Success criteria
 
 - **medical ward**: booking staff for the following shift
@@ -235,8 +235,8 @@ A web application accessed by a ward desktop computer hosted on a hospital serve
 The web application shows
 - a list of current patients
 - a list of expected admissions by day over the next week
-	- for a surgical ward these would be named patients (and procedures) and unnamed ‘emergencies’
-	- for a medical ward these would be unnamed ‘emergencies’
+- for a surgical ward these would be named patients (and procedures) and unnamed ‘emergencies’
+    - for a medical ward these would be unnamed ‘emergencies’
 The list is populated by hand and contains nothing more than patient identifiers (hospital number etc.), date of admission (or expected date of admission for expected admissions), and expected length of stay (LoS). This generates a deterministic view of future bed status.
 NOTE: LoS predictions simple ward level mean (not modelled); Users interact to correct data and adjust predictions (LoS)
 
@@ -258,18 +258,18 @@ The forecasting model is deterministic at this stage. The data model is refactor
 - https://www.hl7.org/fhir/resourcelist.html
 
 TODO: importantly remember that there is information (learning) in the interaction with the model: this is not a one way flow of info: i.e. the users see the LoS predictions and validate them; the validation becomes part of the model input
-	- LoS validation capture
-	- Key criteria that affect individual patient movement (sticky patients b/c infection or difficulty in placement); not all patients are equal
-	- staffing constraints
+- LoS validation capture
+- Key criteria that affect individual patient movement (sticky patients b/c infection or difficulty in placement); not all patients are equal
+- staffing constraints
 
 #### WP-3: Application integration
 TODO: discuss data that are available; duration; generalisability; how to update; need to update
 TODO: see if you can find another site for collaboration (Ari, GOSH?): Letter of support; look for external data to validate
 TODO: @ask Ken: would this be a suitable application for transfer learning; imagine seeing a new ward with new LoS predictions to be generated; then we use the existing learning to accelerate LoS predictions in the new ward
 TODO: importantly remember that there is information (learning) in the interaction with the model: this is not a one way flow of info: i.e. the users see the LoS predictions and validate them; the validation becomes part of the model input
-	- LoS validation capture
-	- Key criteria that affect individual patient movement (sticky patients b/c infection or difficulty in placement); not all patients are equal
-	- staffing constraints
+- LoS validation capture
+- Key criteria that affect individual patient movement (sticky patients b/c infection or difficulty in placement); not all patients are equal
+- staffing constraints
 TODO: add note about correcting errors from (e.g. if truth is always automated and electronic then errors propagate)
 TODO: make a big  deal about the importance of ongoing hand data entry to capture those features that the local team thinks are important (e.g. tracheostomy, social issues, infection control, 1:1 nursing requirement); you may like to revisit this in the UI part of the work packages
 NOTE: Just-in-time (JIT) current state
@@ -301,10 +301,10 @@ Deliverables
 A web application accessed by a ward desktop computer hosted on a hospital server with user access management, and appropriate security. The application now interfaces directly with the hospital Patient Administration System (PAS) using FHIR/HL7, and is populated in near real time. A patient-centric data model is then available for update by the end user, to feed the AI component of the system.
 
 The web application shows a 'just-in-time' view of the current and future bed status
-- a list of current patients
-- a list of expected admissions by day over the next week
-	- for a surgical ward these would be named patients (and procedures) and unnamed ‘emergencies’
-	- for a medical ward these would be unnamed ‘emergencies’
+    - a list of current patients
+    - a list of expected admissions by day over the next week
+- for a surgical ward these would be named patients (and procedures) and unnamed ‘emergencies’
+    - for a medical ward these would be unnamed ‘emergencies’
 The list is automatically populated, but can be edited by hand (corrections, capture of additional salient features). The future view of bed status is now probabilistic rather than determinisitic (see Model milestone below). Manual data entry is still possible as per WP-2.
 
 ##### Model milestone
@@ -316,11 +316,11 @@ The ward level data captured from WP-1 is now both an input to the model, and a 
 - The LoS prediction estimates a future LoS for an individual patient at 2 days. The ward team know the patient is being discharged tomorrow (i.e. in 1 day). They correct the expected discharge date. This correction feeds forward to reduce the predicted occupancy by one patient in two days. The correction is stored as a patient specific feature so that the local training data is enriched.
 - The application is deployed to a critical care unit. Patients who are confused or agitated are labelled as a 'falls risk'. Such patients are provided with health care assistant who to sits at the patient's bedside. Finding this additional staffing resource often delays discharge. The web application allows the ward team to label patients as a 'falls risk'. This feature is then fed into the model which learns the association between 'falls risk' and delayed discharge, and propagates that learning forward.
 
-###### Man months
+##### Man months
 - W-SE: 6 months: HL7 (+FHIR) interface building; providing an API for the modelling inputs/outputs
 - W-AI: 3 months: Re-training the existing models on generic administrative + local ward level data; refactoring code to produce PMML compliant models[@ref: http://dmg.org/pmml/v4-3/GeneralStructure.html]
 
-###### Risks and mitigations
+##### Risks and mitigations
 - HL7 interface does not express the full range of ADT messages
 
 We already have HL7v2.3 ADT (01/02/03/04 plus updates and merges) parsed and expressed within EMAP. This creates a system that captures patients in ‘time and place’ with >99% accuracy. We have also already confirmed that we are receiving SIU 12-15. These should cover the majority of ADT and scheduling information that we need. We have a good, longstanding working relationship with both Epic Systems and Atos who have provided these interfaces at UCLH, and we are confident that were we to identify additional fields we would be able to add them to the existing interfaces.
@@ -333,8 +333,8 @@ Our current HL7 parser is built in a modular manner that converts the incoming m
 
 Our existing models fall within the specification for PMML. It is unlikely that we would develop a model sufficiently bespoke that this could not be used. However, in that case, we would nonetheless follow the existing principles of keeping the modelling code separate from the application. Therefore whilst the model could not be externally shared, it could be updated and replaced as needed.
 
-###### Figures
-###### Refs
+##### Figures
+##### Refs
 
 #### WP-4: Upgrade AI component of the model
 TODO: model and SoA ML
@@ -371,39 +371,35 @@ Finally, we will explore different modelling strategies to support end users dur
 - blue versus green pathways: patient flow and movement within the same physical footprint will be very different depending on whether the wards are part of a blue (COVID-19 positive), green (COVID-19 negative) or non-pandemic pathway.  
 - COVID-19 pandemic resource
 
-###### Success criteria
+##### Success criteria
 As per WP-3 plus
 
 - **All scenarios**
-		- model accuracy improves so that there are fewer manual corrections
-		- demand predictions are subdivided by bed type (side room versus open bay)
+    - model accuracy improves so that there are fewer manual corrections
+    - demand predictions are subdivided by bed type (side room versus open bay)
     - dashboard reports staff-to-patient by bed type
 - **medical ward**: booking staff for the following shift
     - staffing predictions adapt for nursing workload (e.g. proportion of patients on intravenous medications etc.)
-   - **surgical ward**: calling patients up for surgery
-		- surgical admissions requiring specific bedtypes are labelled and forecast distinctly. Scenarios such as surgical cases with MRSA requiring siderooms are handled 
+- **surgical ward**: calling patients up for surgery
+    - surgical admissions requiring specific bedtypes are labelled and forecast distinctly. Scenarios such as surgical cases with MRSA requiring siderooms are handled 
 - **critical care**: giving the go-ahead for surgery that requires ICU
-  		- ICU admissions requiring specific bedtypes are labelled and forecast distinctly (as above). 
-   - theatre coordinating team move their planning bed planning discussions forward by 24-48 hours as the predictions become more reliable
-   - on-the-day cancellations because of lack of ICU bed capacity reduce
-   - theatre teams are confident to start cases before the 9am bed meeting because bed demand was know in advance
+    - ICU admissions requiring specific bedtypes are labelled and forecast distinctly (as above). 
+    - theatre coordinating team move their planning bed planning discussions forward by 24-48 hours as the predictions become more reliable
+    - on-the-day cancellations because of lack of ICU bed capacity reduce
+    - theatre teams are confident to start cases before the 9am bed meeting because bed demand was know in advance
 
-###### Application milestone
+##### Application milestone
 
-###### Model milestone
-###### Risks&Mitigation
+##### Model milestone
+##### Risks&Mitigation
 * Data access & Electronic Staff Record access already in use by partner at UCLH
 * Mathematics & CORU world leading Operational research unit with decades of experience in this field 
-Figures
-References 
-
-
-
-
+##### Figures
+##### References 
 
 Special attention will be paid to two specific sources of information that will affect capacity.
 
-##### WP-x: Application user design
+#### WP-x: Application user design
 
 > Rapid Iterations of Prototyping and Testing
 > "User-centered design (UCD) is an iterative design process in which designers focus on the users and their needs in each phase of the design process. In UCD, design teams involve users throughout the design process via a variety of research and design techniques, to create highly usable and accessible products for them"
@@ -413,12 +409,12 @@ TODO: incr budget for designer
 TODO: Need to justify why the output of the model is important
 What do people need from it and what will be the actionable reports/components
 TODO: Use analogy: what do people do with the information from a weather forecast ?take an umbrella: what are the actionable piece of information; likely to vary from scenario to scenario; and who is the decision maker
-	- ward team who can manage staff
-	- pathway coordinator
-	- bed manager (places?)
-	- consulting surgeon: defines clinical priority
+- ward team who can manage staff
+- pathway coordinator
+- bed manager (places?)
+- consulting surgeon: defines clinical priority
 TODO: define relevant KPI: can you report and show occupancy and LoS; can we then convert these into a game that the team trys to optimise
-	- nurse to patient ratios : less variation and better optimised
+- nurse to patient ratios : less variation and better optimised
 TODO: 
 
 - design-led user interface development
@@ -447,10 +443,7 @@ Criteria
 
 - Milestone: Completed user facing validated software application
 - Risks&Mitigation: 
-	- User interface design experience: In-house team Royal College of Art Health Care design team
-
-
-
+- User interface design experience: In-house team Royal College of Art Health Care design team
 
 #### WP-x: Quality Management process
 
@@ -458,8 +451,8 @@ Update existing network model software to align with ISO 25010:2011 principles (
 
 - Milestone: Deployment of model with FHIR API
 - Risks::Mitigation: 
-	- QMS experience : New partnership with WEISS centre at UCL
-	- Software experience ::Existing partnership with UCL Research Software Engineering team 
+- QMS experience : New partnership with WEISS centre at UCL
+- Software experience ::Existing partnership with UCL Research Software Engineering team 
 
 ## Hurdles
 TODO: ?enumerate the hurdles here but explain in detail above
@@ -468,6 +461,7 @@ TODO: ?enumerate the hurdles here but explain in detail above
 TODO: enumerate the risks here but explain in detail above
 
 ## The Team
+TODO: add Tim
 TODO: explain how the team has worked together before
 TODO: perhaps provide a timeline of the work we have done to date
 
@@ -499,9 +493,9 @@ NOTE: Describe how the outputs of the research will be communicated and to whom.
 NOTE: Present a specific strategy for adoption of the technology into the NHS. Describe the process by which the technology will enter the healthcare environment, including how your solution will be acknowledged, selected and introduced for use in the health and care service or wider society. Detail what current and future barriers to adoption are likely to be encountered, and a strategy for overcoming them. Where possible, consider how your solution will be adopted and implemented longer term, and what efforts and investment are likely to be needed beyond the project to achieve widespread NHS adoption.
 
 
-
 # Other supporting roles - signatories
 
 # Director of finance signature against the declaration
-# 
+ 
+
 
