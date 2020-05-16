@@ -202,7 +202,7 @@ We will therefore refactor the application into modular components.
 - a *modelling layer*: that will run with a minimum or enhanced clinical feature set depending on the level of digital maturity
 - a *presentation layer*: that will be display the forecasts as a web app but does so by querying the modelling layer using a RESTful API, and therefore can be replaced with other presentation tools
 
-In the process, we will rewrite refactoring of code base (currently in Python without unit tests, functional testing etc.). We  proposed switching to Java Hibernate framework and achieve alignment with MDR regulations for decision aids in healthcare)
+In the process, we will rewrite refactoring of code base (currently in Python without unit tests, functional testing etc.). We  propose switching to Java Hibernate framework and achieve alignment with MDR regulations for decision aids in healthcare)
 
 ##### Minimal Viable Product
 Each development cycle deploys the application and the model, and then works with operational and clinical end users to build outputs that provide insights to better manage flow. The objectives of WP1 are foundational and put the application in the hands of users within 3 months. This user-centred design approach optimises the chance of the product delivering on its promise.
@@ -211,11 +211,10 @@ Each development cycle deploys the application and the model, and then works wit
 
 	The existing application runs in an Excel spreadsheet. This precludes use of modern ML techniques, realtime updates, or managing data at scale. But it does allow direct user interaction, and is a tool that all staff understand. Developing in practice rather than theory by iterating from the Excel sheet to a basic web application will generate an application that is actually ‘used in practice’ rather than one that is more perfect in theory. This will be the foundation for all future user development, will allow local data capture (see below), and be the default for less digitally mature environments.
 	
-2. Build in a process for local data capture and updates
+2. Build in a process for ^ and updates
 
 	AI solutions need to learn from their environment, but they can only learn if they have the right data. The most valuable data is local knowledge or ‘end of the bed information’. For example, your model might use EHR data to predict that a 65 year old recovering from hip surgery will have an expected LoS of 10 days. A nurse might look at a patient and realise that this patient is ‘flying’ and will be discharged in 5 days. We will build ‘data-updating’ into the application from the outset. This might capture local estimates (e.g. LoS) or specific attributes that affect flow (infection control status, discharge blockers such as need for social care packages).
-	TODO: add note about correcting errors from (e.g. if truth is always automated and electronic then errors propagate)
-    TODO: make a big deal about the importance of ongoing hand data entry to capture those features that the local team thinks are important (e.g. tracheostomy, social issues, infection control, 1:1 nursing requirement); you may like to revisit this in the UI part of the work packages
+
  
 ##### Success criteria
 
@@ -266,9 +265,22 @@ TODO: importantly remember that there is information (learning) in the interacti
 #### WP-x: Training data
 TODO: discuss data that are available; duration; generalisability; how to update; need to update
 TODO: see if you can find another site for collaboration (Ari, GOSH?): Letter of support
+TODO: @ask Ken: would this be a suitable application for transfer learning; imagine seeing a new ward with new LoS predictions to be generated; then we use the existing learning to accelerate LoS predictions in the new ward
+TODO: importantly remember that there is information (learning) in the interaction with the model: this is not a one way flow of info: i.e. the users see the LoS predictions and validate them; the validation becomes part of the model input
+	- LoS validation capture
+	- Key criteria that affect individual patient movement (sticky patients b/c infection or difficulty in placement); not all patients are equal
+	- staffing constraints
+TODO: add note about correcting errors from (e.g. if truth is always automated and electronic then errors propagate)
+TODO: make a big  deal about the importance of ongoing hand data entry to capture those features that the local team thinks are important (e.g. tracheostomy, social issues, infection control, 1:1 nursing requirement); you may like to revisit this in the UI part of the work packages
 
+Normalised trainng data is already available at UCLH from April 2019 giving a full year of seasonal variation, and capturing the first COVID-19 surge. Data from previous years is also available, and will
 
-Normalised training data is already available at UCLH from April 2019 giving a full year of seasonal variation, and capturing the first COVID-19 surge. Data from previous years is also available, and will
+##### Success criteria
+##### Application milestone
+##### Model milestone: 
+##### Man months:
+##### Figures
+##### Refs 
 
 #### WP-x: Just-in-time (JIT) current state
 
@@ -462,5 +474,4 @@ NOTE: Present a specific strategy for adoption of the technology into the NHS. D
 # Director of finance signature against the declaration
 
 # 
-
 
