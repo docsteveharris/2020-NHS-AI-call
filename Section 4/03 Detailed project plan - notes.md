@@ -3,7 +3,21 @@
 TODO: add in success criteria with dates and evidence
 
 ### Aims and objectives
+
 Need/aim/objectives
+Match these to the fundable activities in the grant call
+
+- research and development to enable clinical use
+- acquisition of data
+- validation
+- usability
+- ce marking
+- ip/business case
+- health economics??
+
+... then talk about preparation for phase 3: real world testing
+
+
 - training data
 	- staff
 	- patient

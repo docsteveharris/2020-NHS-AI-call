@@ -1,7 +1,7 @@
 AI Health and Care Award
 Engagement form
 
-## Brief description of the health or social care problem you are looking to address and how you think your product will solve this: *
+s# Brief description of the health or social care problem you are looking to address and how you think your product will solve this: *
 
 Operational efficiency in the NHS depends on an accurate view of future demand. Elective surgical procedures represent a modifiable portion of that demand that can be used to even out service utilisation by emergency case load. Most bed demand (forecasting) solutions are simulations and unable to predict outside of observed experience. We have instead built a *demand* forecasting solution that allows operational teams to reschedule and reallocate resources. We have experience of deploying this in a single centre for a single ward (Paediatric cardio-thoracic critical care) but have now established a partnership that would scale this hospital wide, and potentially across the NHS by respecting modern interoperability standards.
 

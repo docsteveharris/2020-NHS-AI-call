@@ -9,3 +9,7 @@ Aims and Objectives
 Project plan and methods used
 Timelines for delivery
 Anticipated Impact and Dissemination
+
+For the proposed project, we request funding for 2 years covering one software engineer, and one post-doctoral research associate supported by MU/SC/SH/KL.
+
+WP1: 
