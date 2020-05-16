@@ -23,11 +23,14 @@ Stage Application- Scientific abstract.md
 
 ---
 
-Application milestone
-Model milestone
-Man months
-Figures
-Refs
+
+##### Success criteria
+##### Application milestone
+##### Model milestone: 
+##### Man months:
+##### Figures
+##### Refs 
+
 
 
 #### Project progress

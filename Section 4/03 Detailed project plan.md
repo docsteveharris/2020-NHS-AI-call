@@ -209,11 +209,11 @@ Each development cycle deploys the application and the model, and then works wit
 
 1. Generate the basic structure of the application to allow iterative user testing and development (build-test-learn)
 
-	The existing application runs in an Excel spreadsheet. This precludes use of modern ML techniques, realtime updates, or managing data at scale. But it does allow direct user interaction, and is a tool that all staff understand. Developing in practice rather than theory by iterating from the Excel sheet to a basic web application will generate an application that is actually ‘used in practice’ rather than one that is more perfect in theory. This will be the foundation for all future user development, will allow local data capture (see below), and be the default for less digitally mature environments.
+The existing application runs in an Excel spreadsheet. This precludes use of modern ML techniques, realtime updates, or managing data at scale. But it does allow direct user interaction, and is a tool that all staff understand. Developing in practice rather than theory by iterating from the Excel sheet to a basic web application will generate an application that is actually ‘used in practice’ rather than one that is more perfect in theory. This will be the foundation for all future user development, will allow local data capture (see below), and be the default for less digitally mature environments.
 	
-2. Build in a process for ^ and updates
+2. Build in a process for ward level data capture and updates
 
-	AI solutions need to learn from their environment, but they can only learn if they have the right data. The most valuable data is local knowledge or ‘end of the bed information’. For example, your model might use EHR data to predict that a 65 year old recovering from hip surgery will have an expected LoS of 10 days. A nurse might look at a patient and realise that this patient is ‘flying’ and will be discharged in 5 days. We will build ‘data-updating’ into the application from the outset. This might capture local estimates (e.g. LoS) or specific attributes that affect flow (infection control status, discharge blockers such as need for social care packages).
+AI solutions need to learn from their environment, but they can only learn if they have the right data. The most valuable data is local knowledge or ‘end of the bed information’. For example, your model might use EHR data to predict that a 65 year old recovering from hip surgery will have an expected LoS of 10 days. A nurse might look at a patient and realise that this patient is ‘flying’ and will be discharged in 5 days. We will build ‘data-updating’ into the application from the outset. This might capture local estimates (e.g. LoS) or specific attributes that affect flow (infection control status, discharge blockers such as need for social care packages).
 
  
 ##### Success criteria
@@ -262,7 +262,7 @@ TODO: importantly remember that there is information (learning) in the interacti
 	- Key criteria that affect individual patient movement (sticky patients b/c infection or difficulty in placement); not all patients are equal
 	- staffing constraints
 
-#### WP-x: Training data
+#### WP-3: Application integration
 TODO: discuss data that are available; duration; generalisability; how to update; need to update
 TODO: see if you can find another site for collaboration (Ari, GOSH?): Letter of support
 TODO: @ask Ken: would this be a suitable application for transfer learning; imagine seeing a new ward with new LoS predictions to be generated; then we use the existing learning to accelerate LoS predictions in the new ward
@@ -272,19 +272,10 @@ TODO: importantly remember that there is information (learning) in the interacti
 	- staffing constraints
 TODO: add note about correcting errors from (e.g. if truth is always automated and electronic then errors propagate)
 TODO: make a big  deal about the importance of ongoing hand data entry to capture those features that the local team thinks are important (e.g. tracheostomy, social issues, infection control, 1:1 nursing requirement); you may like to revisit this in the UI part of the work packages
+NOTE: Just-in-time (JIT) current state
+NOTE: hand entered data and model above collates ‘known’ information into one place. But relies on hand entry. Most clinical teams use ward white boards for current state and excel for future state (bookings) and have only intuition to describe unplanned future state. This stage now brings in feeds of data and implements the existing models in real time.
 
 Normalised trainng data is already available at UCLH from April 2019 giving a full year of seasonal variation, and capturing the first COVID-19 surge. Data from previous years is also available, and will
-
-##### Success criteria
-##### Application milestone
-##### Model milestone: 
-##### Man months:
-##### Figures
-##### Refs 
-
-#### WP-x: Just-in-time (JIT) current state
-
-NOTE: hand entered data and model above collates ‘known’ information into one place. But relies on hand entry. Most clinical teams use ward white boards for current state and excel for future state (bookings) and have only intuition to describe unplanned future state. This stage now brings in feeds of data and implements the existing models in real time.
 
 Deliverables
 - HL7/FHIR interface for admissions/discharges/transfers to a particular ward (medicine/surgery/critical care)
@@ -309,43 +300,39 @@ Deliverables
 ##### Application milestone
 A web application accessed by a ward desktop computer hosted on a hospital server with user access management, and appropriate security. The application now interfaces directly with the hospital Patient Administration System (PAS) using FHIR/HL7, and is populated in near real time. A patient-centric data model is then available for update by the end user, to feed the AI component of the system.
 
-The web application shows
+The web application shows a 'just-in-time' view of the current and future bed status
 - a list of current patients
 - a list of expected admissions by day over the next week
 	- for a surgical ward these would be named patients (and procedures) and unnamed ‘emergencies’
 	- for a medical ward these would be unnamed ‘emergencies’
-The list is automatically populated, but can be edited by hand (corrections, capture of additional salient features). The future view of bed status is now probabilistic rather than determinisitic (see Model milestone below). 
-
-TODO: return to update and learn from hand selected/edited features
-TODO: update and learng from COVID scale
-
-
-##### Application milestone
-- HL7/FHIR interface to populate existing bookings
-- HL7/FHIR interface to populate future bookings
+The list is automatically populated, but can be edited by hand (corrections, capture of additional salient features). The future view of bed status is now probabilistic rather than determinisitic (see Model milestone below). Manual data entry is still possible as per WP-2.
 
 ##### Model milestone
-
-Modelling: The existing length of stay model is simplified. It uses a narrow range of administrative features that will be common to any NHS ward (e.g. simple administrative data including but not limited to age, source of admission, operative urgency, ward type). These now feed into the non-Markovian network model and modify the ward-to-ward transition probabilities. A short term forecast of bed occupancy is generated.
-Data: 
-
-
-
-TODO: discuss how the model will update; use existing training data; how we store this and make this available via anonymisation approaches
-TODO: Note that there is no AI modelling work in this package but need to develop the patient data model AND the ward data model; need to standardise these and lay foundations for thinking about wards having components (side rooms) so not all beds are the same
-TODO: Data model needs to be an interpreted view of electronic model so updates persist but don’t need to be fed back into the EHR 
 NOTE: what the AI component looks like at this stage
-TODO: defer this to next WP
-- Ward level model: not exploiting previous transitions hence can be deployed as a single ward solution for low digitally maturity; model predicts individual LoS (user adjusts) then aggregates to estimate future bed demand
-- Hospital level model: network of wards and therefore available to *any* ward; exploits transitions; requires PAS+ digital maturity and interface; aggregates transitions to predict future bed demand
-- JIT: report existing occupancy, expected discharges, make visible extreme LoS issues 
 
-The forecasting model is deterministic at this stage. The data model is refactored to a generic FHIR aligned schema (person, encounter observation etc.)[@ref: FHIR]. At this stage the model captures patients in ‘time and place’ but each each patient is indistinguishable with the same expected LoS (the average for a patient in that ward). However, the users would be expected to tune this using the interaction piece described in (2) above.
+The forecast models from the existing application (LoS, non-Markovian network) are now re-deployed on the foundational infrastructure above. The existing length of stay model is deliberately simplified. It uses a narrow range of administrative features that will be common to any NHS ward (e.g. simple administrative data including but not limited to age, source of admission, operative urgency, ward type).
+The ward level length of stay (LoS) model can be deployed as single ward solution for low digital maturity environments. The model predicts individual LoS then aggregates to estimate future bed demand. In more digitally mature environments, where hospital wide data are available, these LoS predictions these now feed into the non-Markovian network model and modify the ward-to-ward transition probabilities.  Both models produce short term probabilisitc forecasts of bed occupancy.
+The ward level data captured from WP-1 is now both an input to the model, and a layer that updates the patient level predictions before reporting. Specific examples might include
+- The LoS prediction estimates a future LoS for an individual patient at 2 days. The ward team know the patient is being discharged tomorrow (i.e. in 1 day). They correct the expected discharge date. This correction feeds forward to reduce the predicted occupancy by one patient in two days. The correction is stored as a patient specific feature so that the local training data is enriched.
+- The application is deployed to a critical care unit. Patients who are confused or agitated are labelled as a 'falls risk'. Such patients are provided with health care assistant who to sits at the patient's bedside. Finding this additional staffing resource often delays discharge. The web application allows the ward team to label patients as a 'falls risk'. This feature is then fed into the model which learns the association between 'falls risk' and delayed discharge, and propagates that learning forward.
 
 ###### Man months
+- W-SE: 6 months: HL7 (+FHIR) interface building; providing an API for the modelling inputs/outputs
+- W-AI: 3 months: Re-training the existing models on generic administrative + local ward level data; refactoring code to produce PMML compliant models[@ref: http://dmg.org/pmml/v4-3/GeneralStructure.html]
 ###### Figures
 ###### Refs
 
+
+
+#### WP-4: Upgrade AI component of the model
+TODO: model and SoA ML
+TODO: model and transfer learning
+TODO: model upgrades - staffing: the trick here is think about staff demand instead of bed demand: that is rebuild model to predict nursing demand! this can be captured from clinical characteristics
+TODO: model upgrades -  infection control: again the key here is to predict demand for bed types
+
+We will augment model 2 with the clinical features that were used to construct model 1 but update that model using modern machine learning techniques that handle wider ranges of time-fixed and time-varying inputs (deep neural nets, and Long Short Term Memory networks for time-varying features etc.) We will explore the use of a wider range of clinical features (demographics, clinical specialty, labelled structural descriptions of hospital infrastructure, vital signs and clinical laboratory data), and we will ensure that the models are performant at varying levels of digital maturity.
+
+Special attention will be paid to two specific sources of information that will affect capacity.
 
 ##### WP-x: Application user design
 
@@ -374,20 +361,6 @@ TODO:
 References
 - hhttps://www.interaction-design.org/literature/topics/user-centered-design
 - [The Four Fundamental Principles of Human-Centered Design and Application](https://jnd.org/the-four-fundamental-principles-ofhuman-centered-design/)
-
-
-#### WP-x: Upgrade AI component of the model
-
-We will augment model 2 with the clinical features that were used to construct model 1 but update that model using modern machine learning techniques that handle wider ranges of time-fixed and time-varying inputs (deep neural nets, and Long Short Term Memory networks for time-varying features etc.) We will explore the use of a wider range of clinical features (demographics, clinical specialty, labelled structural descriptions of hospital infrastructure, vital signs and clinical laboratory data), and we will ensure that the models are performant at varying levels of digital maturity.
-
-Special attention will be paid to two specific sources of information that will affect capacity.
-
-TODO:
-Each of these are variants of the original model
-
-- staffing: the trick here is think about staff demand instead of bed demand: that is rebuild model to predict nursing demand! this can be captured from clinical characteristics
-
-- infection control: again the key here is to predict demand for bed types
 
 #### WP-x: Model evaluation
 TODO: make it clear that this wil be part of the ongoing work; in the Gantt chart it should run all the way through
