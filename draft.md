@@ -319,23 +319,52 @@ The ward level data captured from WP-1 is now both an input to the model, and a 
 ###### Man months
 - W-SE: 6 months: HL7 (+FHIR) interface building; providing an API for the modelling inputs/outputs
 - W-AI: 3 months: Re-training the existing models on generic administrative + local ward level data; refactoring code to produce PMML compliant models[@ref: http://dmg.org/pmml/v4-3/GeneralStructure.html]
+
 ###### Risks and mitigations
 - HL7 interface does not express the full range of ADT messages
-    We already have HL7v2.3 ADT (01/02/03/04 plus updates and merges) parsed and expressed within EMAP. We have also already confirmed 
+
+We already have HL7v2.3 ADT (01/02/03/04 plus updates and merges) parsed and expressed within EMAP. This creates a system that captures patients in ‘time and place’ with >99% accuracy. We have also already confirmed that we are receiving SIU 12-15. These should cover the majority of ADT and scheduling information that we need. We have a good, longstanding working relationship with both Epic Systems and Atos who have provided these interfaces at UCLH, and we are confident that were we to identify additional fields we would be able to add them to the existing interfaces.
+
 - FHIR interface not previously developed.
+
+Our current HL7 parser is built in a modular manner that converts the incoming message into an internal ‘interchange’ format. Converting from HL7 to FHIR requires only a re-write of the external interface. The logic that then constructs the patient and visit index can then be re-used, and the underlying data model will not need changing. 
+
 - Model cannot be expressed in PMML
+
+Our existing models fall within the specification for PMML. It is unlikely that we would develop a model sufficiently bespoke that this could not be used. However, in that case, we would nonetheless follow the existing principles of keeping the modelling code separate from the application. Therefore whilst the model could not be externally shared, it could be updated and replaced as needed.
+
 ###### Figures
 ###### Refs
-
-
 
 #### WP-4: Upgrade AI component of the model
 TODO: model and SoA ML
 TODO: model and transfer learning
 TODO: model upgrades - staffing: the trick here is think about staff demand instead of bed demand: that is rebuild model to predict nursing demand! this can be captured from clinical characteristics
 TODO: model upgrades -  infection control: again the key here is to predict demand for bed types
+TODO: explain in detail about how the ESR can be used to calibrate from user interactions
+TODO: use staff/resource constraints as an example of capturing different information but make this about building an API for the ‘model’
 
+We will explore four areas for upgrading the AI component of the model.
+
+1. Upgrade the LoS predictions using modern ML tools
 We will augment model 2 with the clinical features that were used to construct model 1 but update that model using modern machine learning techniques that handle wider ranges of time-fixed and time-varying inputs (deep neural nets, and Long Short Term Memory networks for time-varying features etc.) We will explore the use of a wider range of clinical features (demographics, clinical specialty, labelled structural descriptions of hospital infrastructure, vital signs and clinical laboratory data), and we will ensure that the models are performant at varying levels of digital maturity.
+2. Develop a transfer learning component 
+3. Alternative predictions (staff, bed subtypes)
+Extension of the model to include staffing/resource constraints wherein current models understand limitations with respect to physical capacity but often staffing/resource is the more important functional limitation.
+4. Modelling extensions for COVID-19
+
+Success criteria
+Application milestone
+Model milestone
+Risks&Mitigation
+* Data access & Electronic Staff Record access already in use by partner at UCLH
+* Mathematics & CORU world leading Operational research unit with decades of experience in this field 
+Figures
+References 
+
+
+
+
 
 Special attention will be paid to two specific sources of information that will affect capacity.
 
@@ -387,17 +416,6 @@ Criteria
 
 
 
-#### WP-x: Model extensions for COVID-19
-
-Extension of the model to include staffing/resource constraints wherein current models understand limitations with respect to physical capacity but often staffing/resource is the more important functional limitation.
-
-- Milestone: Deployment of model with staffing module
-- Risks&Mitigation: 
-    - Data access & Electronic Staff Record access already in use by partner at UCLH
-    - Mathematics & CORU world leading Operational research unit with decades of experience in this field 
-
-TODO: explain in detail about how the ESR can be used to calibrate from user interactions
-TODO: use staff/resource constraints as an example of capturing different information but make this about building an API for the ‘model’
 
 #### WP-x: Quality Management process
 
@@ -452,4 +470,3 @@ NOTE: Present a specific strategy for adoption of the technology into the NHS. D
 # Director of finance signature against the declaration
 
 # 
-
