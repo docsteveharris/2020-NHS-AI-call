@@ -451,6 +451,16 @@ We have allocated 0.5 days per week over the duration of the project to this wor
 #### WP-x: Model evaluation
 TODO: make it clear that this wil be part of the ongoing work; in the Gantt chart it should run all the way through
 TODO: work with other sites
+TODO: refer to pp14 of - Evidence Standards Framework for Digital Health Technologies (March 2019) and Table 3; 
+
+TODO headings
+- Credibility with UK health and social care professionals (tier 1)
+- Relevance to current care pathways in the UK health and social care system
+- Acceptability with users (tier 1)
+- Equalities considerations (tier 1)
+- Accurate and reliable measurements (if relevant).
+- Accurate and reliable transmission of data (if relevant).
+
 
 Model evaluation, safety and reliability data
 Comparison against existing models in general use
@@ -468,18 +478,52 @@ Criteria
 
 #### WP-x: Quality Management process
 
+It is crucial that we prepare the documentation for the application during its development. This is essential to meet MHRA regulation for software deployed in health care environments. To this end, we have allocated resource and time to work with Prof Dean Barratt who has successfully developed a Quality Management System for the Centre for Medical Image Computing (CMIC) to ISO 13485 standards, and has previous experience of commercialisation. We do not believe this application constitutes a 'medical device' as it does not meet the criteria provided by the MHRA.[@MHRA]
+
+The aim will be to meet recommended standards such as IEC-62304 (software lifecycle for medical devices) and produce documents including a 'Software Development Plan', and a preliminary 'Risk Analysis' in accordance with ISO-14791 for medical devices.
+
+
 Update existing network model software to align with ISO 25010:2011 principles (Reliability/Efficiency/Security/Maintainability); ensure interoperability at varying levels of digital maturity (HIMSS 0-7) using HL7 v2.3+ and FHIR. Initiate Quality Management System (QMS) and Medical Device Regulation compliance
 
-- Milestone: Deployment of model with FHIR API
-- Risks::Mitigation: 
-- QMS experience : New partnership with WEISS centre at UCL
-- Software experience ::Existing partnership with UCL Research Software Engineering team 
+
+Success criteria
+Application milestone
+Model milestone
+
+NOTE: MHRA class 1? I don't think this is a medical device because the product is not being used for a medical purpose
+NOTE: CE marking
+NOTE: NHS Evidence Standards for Digital Health Technology (Tier 1); "improve system efficiency but unlikely to have direct and measurable individual patient outcomes"
+
+TODO: will need instead to refer to https://www.gov.uk/government/publications/code-of-conduct-for-data-driven-health-and-care-technology/initial-code-of-conduct-for-data-driven-health-and-care-technology 
+    - could map a response against these needs
+
+##### References
+- https://www.gov.uk/government/publications/medical-devices-software-applications-apps
+- Evidence Standards Framework for Digital Health Technologies (March 2019)
+
+----
 
 ## Hurdles
 TODO: ?enumerate the hurdles here but explain in detail above
 
 ## Risks and mitigations
 TODO: enumerate the risks here but explain in detail above
+TODO: talk about team management and why we have SH/TB + SC/MU; talk about how we will keep the project on track
+TODO: set-up and describe the members of the project management board PMB (cf. study project team) and strategic advisory board (SAB) cf. study steering group
+TODO: add in links to be made with UCLB / TTO?
+
+- Risks::Mitigation: 
+Others
+- lack of experience developing non-research software
+    - QMS experience : New partnership with WEISS centre at UCL
+    - Software experience ::Existing partnership with UCL Research Software Engineering team 
+- inability to recruit
+    - use existing team if timing works out well
+- limited commercial uptake?
+- limited user engagement when there are already other high quality bed planning tools
+- too many applications (epic already there)
+    - embed in EHRS?
+
 
 ## The Team
 TODO: add Tim
@@ -507,6 +551,20 @@ NOTE: Please include details of the intended market, barriers to entry, and comp
 
 TODO: IP from existing forecasting model (background) and future (foreground)
 TODO: IP from HL7 interface (background) and FHIR (foreground)
+TODO: need to explain that we have not done a Freedom to Operate search; that we will do this; put in a cost for this; explain that as an academic group we have not done this yet
+TODO: speak to UCLB
+NOTE: describe using the following headings
+- value proposition
+- benefits to health and care system
+    - better use of resources; fewer cancellations; more patients through pathways
+    - reduce harm and improve safety related to stretched staffing
+    - better use of resources system wide (can redirect outliers effectively)
+    - better staff engagement / retention as they have control over their own work
+- benefits to patients
+    - avoid on-the-day cancellations and the disruption this causes
+    - better nurse:patient ratios
+    - more likely to get critical care when it is needed
+
 
 ## Dissemination and NHS adoption strategy
 NOTE: Please describe the planned outputs of the research and how they may lead to short and longer-term NHS and patient impacts. As far as possible, indicate anticipated timescales for these benefits and a quantitative estimate of their scale. Impacts may include, but are not restricted to - patient benefit; healthcare staff benefits; changes in NHS service (including efficiency savings); commercial return (which could contribute to economic growth); public wellbeing.
