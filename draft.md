@@ -179,17 +179,17 @@ With respect to research governance, we will divide the project into two compone
 - **Compute**: We order and install a project specific GAE (Generic Application Environment) for the team. This is a component of the EMAP platform: a Linux based Virtual Machine designed to host Dockerised Applications within the NHS environment. Dockerisation of the application infrastructure permits rapid deployment to new environments, and is the recommended solution for application development at UCLH.
 - **Data**: We will gain approvals through the UCLH Clinical Research Informatics (CRIU) Data Access Committee to work with identifiable patient data for the purposes of building this application.
 
-###### Success criteria
+##### Success criteria
 - Staff: All with Honorary contracts and IT access
 - Compute: Virtual Machine (GAE) deployed; Web server accessible on the UCLH network via HTTPS
 - Data: Access to EMAP ‘User Data Store’ including full HL7 ADT stream from April 2019 
-###### Application Milestone
+##### Application Milestone
 - N/A
-###### Model Milestone
+##### Model Milestone
 - N/A 
-###### Man months
+##### Man months
 - 1 month but up to 3 months elapsed time
-###### Risks and mitigation
+##### Risks and mitigation
 We are very much aware that hiring, equipment installations and governance approvals can take much longer than anticipated. 
 Once funding is confirmed we will immediately appoint W-AI/W-SE and seek approvals as per the existing team. Ideally, we will draw on existing internal resource from the group since approvals would already be in place, and the team has existing experience with the application. This would accelerate our timelines. We are also confident data access will be approved. We enclose letters of support from Professor Bryan Williams, Director of UCLH/UCL Biomedical Research Centre, and have previously had successful access for earlier work (Wellcome ISSF ED network flow modelling, Health Foundation Critical Care patient monitoring). 
 
@@ -422,29 +422,27 @@ TODO: add below
 
 Special attention will be paid to two specific sources of information that will affect capacity.
 
-#### WP-x: Application user design
+#### WP-5: Application user design
+TODO: define relevant KPI: can you report and show occupancy and LoS; can we then convert these into a game that the team trys to optimise - nurse to patient ratios : less variation and better optimised
 
-> Rapid Iterations of Prototyping and Testing
-> "User-centered design (UCD) is an iterative design process in which designers focus on the users and their needs in each phase of the design process. In UCD, design teams involve users throughout the design process via a variety of research and design techniques, to create highly usable and accessible products for them"
+No AI supported health care application is of any value if it is not used, and for the application to add value the users also need to be decision makers. We specifically focus on the ward as the operational unit. Wards manage their own staff, flex up by booking bank staff, handle sickness, and declare a 'capacity' to the wider organisation based on the balance between staff and patient workload.  This task is managed by the nurse in charge. The ward then works in concert with administrative and management roles such as surgical pathway coordinators who manage the upcoming theatre diary, and (operating) theatre managers who construct the daily theatre schedule.
 
+We will use a 'User-centred design' (UCD) to deliver a product that meaningfully enables the ward team to interact with these other groups to maximise operational efficiency. UCD is ... "an iterative design process in which designers focus on the users and their needs ... (and) ... involve users throughout the design process via a variety of research and design techniques, to create highly usable and accessible products for them."[@ref: https://github.com/reedes/vim-pencil/blob/master/README.markdown] This is not about building a slick user interface or using the latest web framework, but rather a functional application that fits into the daily work flow, and solves problems for the users. 
+Indeed, the existing Excel based application built through CORU's 'modeller in residence' program closed followed these principles. The product is functional rather than beautiful but has remained in use over many years. The initial product was built in collaboration with the end users, and modified iteratively after deployment.[@ref: original CORU report]
+The work will run in parallel with the other work packages with an early phase where the 'user context' is defined, and the 'user's requirements' specified. Potential design solutions will be mocked up, and shared with the application engineer (W-SE). A process of rapid iterations of prototypes and testing will be implemented from the beginning of the project. A similar approach will also be used to tune the inputs and outputs to and from the AI model.
 
-TODO: incr budget for designer
-TODO: Need to justify why the output of the model is important
-What do people need from it and what will be the actionable reports/components
-TODO: Use analogy: what do people do with the information from a weather forecast ?take an umbrella: what are the actionable piece of information; likely to vary from scenario to scenario; and who is the decision maker
-- ward team who can manage staff
-- pathway coordinator
-- bed manager (places?)
-- consulting surgeon: defines clinical priority
-TODO: define relevant KPI: can you report and show occupancy and LoS; can we then convert these into a game that the team trys to optimise
-- nurse to patient ratios : less variation and better optimised
-TODO: 
+##### Success criteria
+- a list of user requirements generated by observation and interviews with ward, theatre, critical care, and surgical pathway teams
+- a process for rapid iteration and prototyping that is then employed through-out each of the phases of development for the remainder of the project
+- an application that is 'in use' and reached for out of choice when teams come to consider ward operational questions
 
-- design-led user interface development
-- deployment and evaluation of core model
-- deployment and evaluation of enhanced model
-- IP and commercial evaluation  
+##### Man months
+We have allocated 0.5 days per week over the duration of the project to this work. We would expect this to be front-loaded whilst we collected the initial interviews, and then taper.
 
+##### Risks and mitigations
+- Limited access to staff: Staff may be busy or reluctant to invest time with team. We think this risk is low. We have worked with health care design during the implementation of a dashboarding tool on the EMAP platform, and user engagement has been excellent. We will be using the same team. This team has extensive experience of working in healthcare and NHS environments, and are able to observe effectively and gather requirements with minimal disruption.
+- Insufficient time: We believe we under-budgeted the time for this work at the Expression of Interest stage, and have increased the investment modestly but to a level where we are confident that we can deliver.
+- Front-end-development expertise: Whilst the principles of design are more fundamental than the user-interface, some aspects of the product will require front end development expertise. We will make this a 'desirable' requirement when employing W-SE. Where the individual needs further support then we are confident that there is depth with UCL's Research Software Engineering group such that this can be provided through training.
 
 ##### References
 - https://www.interaction-design.org/literature/topics/user-centered-design
