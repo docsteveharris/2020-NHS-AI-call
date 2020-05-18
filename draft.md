@@ -34,6 +34,9 @@ WP-5:
 
 # Detailed project plan 
 OBJECTIVE AS PER PHASE 2: To develop prototypes and generate early clinical  safety/efficacy data towards CE marking
+TODO: drop the part that talks about EMAP and FHIR since it's overambitious to build this within the project
+TODO: drop EMAP
+TODO: assign the IP to UCLB; 
 
 ## The opportunity
 
@@ -452,6 +455,7 @@ We have allocated 0.5 days per week over the duration of the project to this wor
 TODO: make it clear that this wil be part of the ongoing work; in the Gantt chart it should run all the way through
 TODO: work with other sites
 TODO: refer to pp14 of - Evidence Standards Framework for Digital Health Technologies (March 2019) and Table 3; 
+TODO: unit testing, functional testing; system for monitoring bugs; and tracking issues; then real world data to show that people don't make crazy decisions/cancel cancer cases
 
 TODO headings
 - Credibility with UK health and social care professionals (tier 1)
