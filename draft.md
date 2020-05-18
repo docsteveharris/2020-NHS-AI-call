@@ -539,53 +539,23 @@ NOTE: Describe the existing research support (e.g. funding from other sources) a
 ###Specify the role of the lead applicant
 
 ## Finance analysis
-TODO: details of the company's cash flow etc
-TODO: justification of the costs (see Appendix 2)
+----------------
 
-## Patient data use and monitor of patient safety
-NOTE: Describe any known limitations of the data used and algorithms deployed by the AI solution. Include an ethical examination of how the data would be used, and how it would comply with the AI Code of Conduct. Explain how the product’s performance would be validated and how it would be integrated into health and care provision. Demonstrate that security of the data is integral to its design.  Please include details of how you will monitor and report patient safety or data issues, including any recovery plan.
+
+
+
 
 ## Ethics and regulatory approvals
-NOTE: Outline any ethical issues associated with this research and the arrangements for handling them. If there are no plans to obtain ethical review, this must be clearly justified. Note that work outlined in your application must adhere to the UK Framework for Health and Social Care Research.
+
+NOTE: Outline any ethical issues associated with this research and the
+arrangements for handling them. If there are no plans to obtain ethical
+review, this must be clearly justified. Note that work outlined in your
+application must adhere to the UK Framework for Health and Social Care
+Research.
 
 ## Intellectual Property (IP) and commercialisation strategy
-NOTE: All background and any potential foreground IP arising from the project must be described in the application. An initial freedom to operate opinion must be provided, referencing any third parties’ rights which may affect the implementation of your device or technology. A strategy should be proposed for how third party rights will be managed to allow for further development, implementation and commercial exploitation. Provide details of any new types of IP that may arise during the project, including ownership arrangements and management of the IP.
-NOTE: IP arrangements between collaboration partners, and with consultancies and sub-contractors must be regulated by appropriate agreements. The Lambert Toolkit provides model agreements for collaborations between universities and companies.
-NOTE: Please include details of the intended market, barriers to entry, and competitor analysis as well as details of your sales strategy/channels and marketing plans. Include a pricing strategy. Provide any details of market traction, interested customers and their potential value for the company, and/or any income already being generated. Market opportunities, both domestic and global can be explored.
 
-TODO: IP from existing forecasting model (background) and future (foreground)
-TODO: IP from HL7 interface (background) and FHIR (foreground)
-TODO: need to explain that we have not done a Freedom to Operate search; that we will do this; put in a cost for this; explain that as an academic group we have not done this yet
-TODO: speak to UCLB
-NOTE: describe using the following headings
-- value proposition
-- benefits to health and care system
-    - better use of resources; fewer cancellations; more patients through pathways
-    - reduce harm and improve safety related to stretched staffing
-    - better use of resources system wide (can redirect outliers effectively)
-    - better staff engagement / retention as they have control over their own work
-- benefits to patients
-    - avoid on-the-day cancellations and the disruption this causes
-    - better nurse:patient ratios
-    - more likely to get critical care when it is needed
-
-
-## Dissemination and NHS adoption strategy
-NOTE: Please describe the planned outputs of the research and how they may lead to short and longer-term NHS and patient impacts. As far as possible, indicate anticipated timescales for these benefits and a quantitative estimate of their scale. Impacts may include, but are not restricted to - patient benefit; healthcare staff benefits; changes in NHS service (including efficiency savings); commercial return (which could contribute to economic growth); public wellbeing.
-NOTE: Describe how the outputs of the research will be communicated and to whom. Identify key stakeholders, and your plans for engaging them. To realise impact, it is unlikely that simply making outputs available will be sufficient. Please consider and outline the active approach you will take to engaging key parties to disseminate the work.
-NOTE: Present a specific strategy for adoption of the technology into the NHS. Describe the process by which the technology will enter the healthcare environment, including how your solution will be acknowledged, selected and introduced for use in the health and care service or wider society. Detail what current and future barriers to adoption are likely to be encountered, and a strategy for overcoming them. Where possible, consider how your solution will be adopted and implemented longer term, and what efforts and investment are likely to be needed beyond the project to achieve widespread NHS adoption.
-
-
-# Other supporting roles - signatories
-
-# Director of finance signature against the declaration
- 
-
-
-Intellectual Property (IP) and commercialisation strategy
----------------------------------------------------------
-
-**Background IP**
+### Background IP
 
 \[AppName\] will be built on top of the EMAP Data Science Platform. The
 EMAP platform will be responsible for providing an API to access data
@@ -596,9 +566,9 @@ where required. We will ensure that any open source technologies used do
 not have a license that would impair our ability to commercialise
 \[AppName\].
 
-**Foreground IP**
+### Foreground IP
  
-*Freedom to Operate*
+#### Freedom to Operate
 
 We have not conducted a formal Freedom to Operate search at this stage
 of the project. However, based on our own internal review we see no
@@ -611,7 +581,7 @@ We will engage the services of our Technology Transfer Office, UCL
 Business (UCLB), to conduct this search in the final stages of this
 project.
 
-*Patents/Commercialisable IP*
+#### Patents/Commercialisable IP
 
 The patentable or commercially exploitable IP generated by this project
 will be:
@@ -621,8 +591,7 @@ will be:
 
 -   A scoring engine for running the algorithm in real-time.
 
--   A software front end for displaying algorithm outputs and allowing
-    > the user to interact with the information provided,
+-   A software front end for displaying algorithm outputs and allowing the user to interact with the information provided,
 
 UCLB will act on behalf of both UCL and the UCLH NHS Foundation Trust to
 manage the IP. UCLB will explore the feasibility of protecting the HAVEN
@@ -648,23 +617,23 @@ Revenue-sharing agreements will be put in place between the project
 partners and partner institutions, to appropriately reflect the relative
 contributions made, as determined by mutual agreement.
 
-**Commercialisation Strategy**
+### Commercialisation Strategy 
 
-*Route to Market*
+#### Route to Market
 
 The initial target market would be the NHS in England, Scotland and
 Wales who together have a published annual budget of £112.8 billion.
 
-*Competitors*
+#### Competitors
 
-\[Guys, you need to write a section in here about how else does flow
+TODO: \[Guys, you need to write a section in here about how else does flow
 management stuff. Anything that might reasonably be considered a
 competitor. You've referred to teletracking above. You don't have to do
 anything detailed, just classify them into groups -- eg: dashboards with
 no AI, RFID-solution etc etc. Then you need to say why your approach is
 better.\]
 
-*Commercialisation Strategy*
+#### Commercialisation Strategy
 
 The commercialisation strategy will be managed by UCLB. \[Insert
 sentence demonstrating their track record\]
@@ -677,3 +646,36 @@ identified by UCLB in order to identify potential commercial partners.
 The most likely route to market is through licensing of project IP.
 However, if our market analysis suggests that a spin-out company would
 be a better approach then we will be able to pursue this via UCLB.
+
+Dissemination and NHS adoption strategy
+---------------------------------------
+
+NOTE: Please describe the planned outputs of the research and how they
+may lead to short and longer-term NHS and patient impacts. As far as
+possible, indicate anticipated timescales for these benefits and a
+quantitative estimate of their scale. Impacts may include, but are not
+restricted to - patient benefit; healthcare staff benefits; changes in
+NHS service (including efficiency savings); commercial return (which
+could contribute to economic growth); public wellbeing.
+
+NOTE: Describe how the outputs of the research will be communicated and
+to whom. Identify key stakeholders, and your plans for engaging them. To
+realise impact, it is unlikely that simply making outputs available will
+be sufficient. Please consider and outline the active approach you will
+take to engaging key parties to disseminate the work.
+
+NOTE: Present a specific strategy for adoption of the technology into
+the NHS. Describe the process by which the technology will enter the
+healthcare environment, including how your solution will be
+acknowledged, selected and introduced for use in the health and care
+service or wider society. Detail what current and future barriers to
+adoption are likely to be encountered, and a strategy for overcoming
+them. Where possible, consider how your solution will be adopted and
+implemented longer term, and what efforts and investment are likely to
+be needed beyond the project to achieve widespread NHS adoption.
+
+Other supporting roles - signatories
+====================================
+
+Director of finance signature against the declaration
+=====================================================
