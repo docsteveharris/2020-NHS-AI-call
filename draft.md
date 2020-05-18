@@ -1,8 +1,8 @@
 # Background details
+
 TODO: complete online; no specific prose needed here
 
 # Plain English Summary (450 words)
-TODO: 2020-05-15: prose below is as per EoI; still to update after project plan complete
 
 More than 1000 patients have elective surgery cancelled every week in the NHS, causing anxiety for patients and families.(D Wong, 2017) Cancellations are upsetting, inefficient, may cause harm, delay treatment, and let slip therapeutic opportunities. Bed capacity is the primary reason for these cancellations. Yet bed capacity fluctuates. Operational efficiency depends on an accurate view of near-future demand, but this is challenging because a hospital is a complex system with many interdepartmental flows, and individual emergencies seem unpredictable.
 
@@ -16,7 +16,7 @@ This creates a window for local teams to better use their existing bed capacity 
 We now seek support to
 
 1. Upgrade the AI component of the model so that it can learn from a wider range of patient clinical characteristics (lab results, clinical history, vital signs etc.) 
-2. To extend the mathematics to include staffing constraints that must also influence bed availability. 
+2. To extend the mathematics to include staffing and infection control constraints that must also influence bed availability. 
 3. To encapsulate the mathematical model in a software application that is resilient and 'connectable' to hospitals across the NHS (‘interoperability’). Our application would enable both hospitals using predominantly paper notes (most nonetheless have an electronic patient booking system) and hospitals that are already fully paperless.
 4. To test the application with clinical and operational teams so that it is reliable, easy and safe to use.
 
@@ -33,10 +33,9 @@ WP-4:
 WP-5:
 
 # Detailed project plan 
-OBJECTIVE AS PER PHASE 2: To develop prototypes and generate early clinical  safety/efficacy data towards CE marking
+
+NOTE: OBJECTIVE AS PER PHASE 2: To develop prototypes and generate early clinical  safety/efficacy data towards CE marking
 TODO: drop the part that talks about EMAP and FHIR since it's overambitious to build this within the project
-TODO: drop EMAP
-TODO: assign the IP to UCLB; 
 
 ## The opportunity
 
@@ -56,24 +55,22 @@ Following the initial COVID-19 surge in Spring 2020, constrained ICU bed capacit
 
 Future bed management will need to maintain separate 'blue' and 'green' (COVID positive and COVID negative) streams, and to be ready to flex up and down in response to future surges. This is going to be particularly true where pathways involve critical care. Realtime bed information and short-term demand forecasts are going to be even more important to maintain patient flow.  These enable the workforce by putting the information they need in their hands at the right time. Staffing can be flexed, patients forewarned, or schedules re-adjusted to improve efficiency.
 
-#### Market plan
-TODO: @Tim: need help here
-NOTE: Phase 2 application aim: To develop prototypes and generate early clinical  safety/efficacy data towards CE marking
-NOTE: I'd don't think we want to build and run a company. So the end game for this would be a decent enough application that it could be picked up and commercialised by someone else. I'd like to be explicit about this but not sure if that is the right approach.
-TODO: INSERT THE FOLLOWING? D/W Sonya/Martin: We originally wrote this proposal to run over 26 months as this fitted with our local staffing and supervision model. However, given the urgency imposed by COVID-19, and the pressing need to find ways to improve patient flow, then we would be prepared to double the staffing allocated to the project and (nearly) halve the duration to 15 months. Please see the original and a proposed accelerated Gantt chart.
 
-We have already built and deployed a prototype bed demand forecasting model. This has been deployed to predict bed demand for Great Ormond Street Hospital’s cardio-thoracic ICU since 2012. It produces a real time, hyper-local, 7-day forecast of bed demand. In 2018-9, we collaborated with University College Hospital’s digital platform team to (1)  generalise our model to work for any ward in a complex network of flows, and (2) start to adapt the technology for different levels of digital ‘readiness’. As per NHS-X strategies, the platform is interoperable, robust and scalable. We now seek support to update our prototype with state of the art ‘machine learned’ clinical features, and to generate the safety and efficacy data for deployment across the NHS.
+TODO: ===========================
+TODO: @RESUME 2020-05-18t15:45:14
+TODO: ===========================
 
-The next stage prototype deliver the following:
+NOTE: Please also provide a description of how your AI solution will support the NHS Long Term Plan, NHSX strategic priorities and/or wider government priorities including the Industrial Strategy grand challenges or resource efficiency. Please report market size, any related trend or forecast, patient population affected, NHS cost burden, and state of the art.
+NOTE: relevance to priorities and needs of the NHS, cite the NHSX documents
 
-1. A set of learned model coefficients that accelerate deployment with a smaller training data set at a new location.
-2. An interface that permits adaption based on key local features
-3. A robust software package for reliable deployment
-4. A user interface that permits rapid adoption with minimal training needs for front line clinical staff
+NHS Long Term Plan
+NHS-X Strategic Priorities
+Industrial Strategy grand challenges
+Future trends
+- talk about the reduction in the number of beds
+- talk about COVID-19 pressures
 
-The target market is NHS acute hospital trusts. The application would be installed by the organisation, and then made available to all wards, including critical care, as well as the bed management and surgical pathway teams. Where digital maturity is such that HL7 or FHIR interfaces are unavailable, the application could be deployed to key wards such as critical care with direct (manual) data entry. 
 
-We will work with UCL/UCLH technology transfer teams to develop the correct business model going forwards.
 
 #### Existing product / experience
 
@@ -105,7 +102,14 @@ We have built a hyper-local realtime bed demand forecast that generates ward lev
 We eschew predictions under the known strained network and evaluate the 'what might have been' (counterfactual) scenario to gain novel insights.  Specifically, *demand* predictions are upstream of the response, and create a window for intervention (changing discharge priorities, flexing staffing, re-organising schedules etc.). We also build a bottom-up (local) forecast that starts at with the ward rather than hospital. A simulation might be helpful to a the executive team planning bed flows through a new building. However, local forecasts that are placed in the hands of the ward team, surgical pathway coordinators, and theatre planners offer a chance to actually improve operational efficiency.
 
 #### Digital Infrastructure (EMAP)
+TODO: Rewrite this to ensure that you are only using EMAP to prototype rapidly and not including it in the application; i.e. UCLH becomes the competitive advantage
+
 Over the last two years, UCLH has not only acquired a fully integrated Electronic Health Record System (Epic EHRS), but we (SH/TB/JC) have built a real-time data processing platform (EMAP) that exposed the information in the EHRS and other systems for research and innovation. This has been done with modern digital standards at its core. HL7 message streams are parsed, data is normalised to the OMOP Common Data Model, and FHIR aligned applications are on the roadmap for 2020. This means that we can move rapidly from concept to prototype, and indeed we were able to deploy CORU's non-Markovian model for the ICU at UCLH in less than a month.
+
+TODO: simple list of advantages of proposed technology
+- interface creation/design
+- data aggregation system
+- modelling predictions
 
 ### Barriers to adoption: 
 TODO: see existing list under market plan and discuss here
@@ -465,24 +469,26 @@ TODO headings
 - Accurate and reliable measurements (if relevant).
 - Accurate and reliable transmission of data (if relevant).
 
-
 Model evaluation, safety and reliability data
 Comparison against existing models in general use
 Each testing cycle deploys the model, and then works with operational and clinical end users to build outputs that provide insights to better manage flow
 
-Define early success criteria
 
-Criteria
+
+##### Success criteria
 - pre-forecasting success: just timely information available to all users of the *current* state: i.e. who is in what bed at what time
 - can you fix the 9am bed meeting so that firstly it runs the evening before; then iteratively move that forward
-
-- Milestone: Completed user facing validated software application
-- Risks&Mitigation: 
-- User interface design experience: In-house team Royal College of Art Health Care design team
+##### Application milestone
+##### Model milestone: 
+##### Man months:
+##### Figures
+##### Refs 
 
 #### WP-x: Quality Management process
 
 It is crucial that we prepare the documentation for the application during its development. This is essential to meet MHRA regulation for software deployed in health care environments. To this end, we have allocated resource and time to work with Prof Dean Barratt who has successfully developed a Quality Management System for the Centre for Medical Image Computing (CMIC) to ISO 13485 standards, and has previous experience of commercialisation. We do not believe this application constitutes a 'medical device' as it does not meet the criteria provided by the MHRA.[@MHRA]
+
+The project will be undertaken with CE marking in mind. Programming will be undertaken within an appropriate environment and documentation will be completed to the required standards. External consultation will be used to ensure that appropriate standards and documentation are maintained.
 
 The aim will be to meet recommended standards such as IEC-62304 (software lifecycle for medical devices) and produce documents including a 'Software Development Plan', and a preliminary 'Risk Analysis' in accordance with ISO-14791 for medical devices.
 
@@ -530,20 +536,20 @@ Others
 
 
 ## The Team
-TODO: add Tim
+NOTE: Explain why the group is well qualified to run this project, describing the track record of the team in health research, technology development and commercialisation. Explain how the applicants work together (or propose to work together if they have not done so previously), and identify other major collaborations important for the research.
+NOTE: Describe the existing research support (e.g. funding from other sources) available to the research team, which is relevant to this proposal. Clearly delineate the proposed project from other related research, funded from another source.
+
+
+
+TODO: Describe how the project will be managed; use this to talk about the CRIU and how the infrastructure there and that provided by the BRC will enable this project
 TODO: explain how the team has worked together before
 TODO: perhaps provide a timeline of the work we have done to date
-
-NOTE: Describe the existing research support (e.g. funding from other sources) available to the research team, which is relevant to this proposal. Clearly delineate the proposed project from other related research, funded from another source.
+TODO: add Tim
 
 ###Specify the role of the lead applicant
 
 ## Finance analysis
 ----------------
-
-
-
-
 
 ## Ethics and regulatory approvals
 
@@ -621,17 +627,25 @@ contributions made, as determined by mutual agreement.
 
 #### Route to Market
 
-The initial target market would be the NHS in England, Scotland and
-Wales who together have a published annual budget of £112.8 billion.
+The initial target market would be acute hospital trusts the NHS in England, Scotland and Wales who together have an annual budget in excess of £130 billion. The application would be installed by the organisation, and then made available to all wards, including critical care, as well as the bed management and surgical pathway teams. Where digital maturity is such that HL7 or FHIR interfaces are unavailable, the application could be deployed to key wards such as critical care with direct (manual) data entry. 
+
+We will work with UCL/UCLH technology transfer teams to develop the correct business model going forwards.
 
 #### Competitors
-
+TODO: outline of all other current solutions
 TODO: \[Guys, you need to write a section in here about how else does flow
 management stuff. Anything that might reasonably be considered a
 competitor. You've referred to teletracking above. You don't have to do
 anything detailed, just classify them into groups -- eg: dashboards with
 no AI, RFID-solution etc etc. Then you need to say why your approach is
 better.\]
+
+Dashboarding solutions
+- Epic ...
+Simulation based forecasts
+- Hospital IQ
+- GE Command Centre
+RFID solutions
 
 #### Commercialisation Strategy
 
@@ -646,6 +660,7 @@ identified by UCLB in order to identify potential commercial partners.
 The most likely route to market is through licensing of project IP.
 However, if our market analysis suggests that a spin-out company would
 be a better approach then we will be able to pursue this via UCLB.
+
 
 Dissemination and NHS adoption strategy
 ---------------------------------------
@@ -673,6 +688,17 @@ adoption are likely to be encountered, and a strategy for overcoming
 them. Where possible, consider how your solution will be adopted and
 implemented longer term, and what efforts and investment are likely to
 be needed beyond the project to achieve widespread NHS adoption.
+
+TODO: classify by 
+- publications
+- algorithms
+- application
+- user research
+- transfer learning model
+- local pseudonymised database of patient movements
+- Outcomes
+    - patient impact
+    - NHS benefits
 
 Other supporting roles - signatories
 ====================================
