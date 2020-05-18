@@ -41,6 +41,9 @@ TODO: drop the part that talks about EMAP and FHIR since it's overambitious to b
 
 ### NHS unmet clinical need and market plan
 
+NOTE: Please also provide a description of how your AI solution will support the NHS Long Term Plan, NHSX strategic priorities and/or wider government priorities including the Industrial Strategy grand challenges or resource efficiency. Please report market size, any related trend or forecast, patient population affected, NHS cost burden, and state of the art.
+NOTE: relevance to priorities and needs of the NHS, cite the NHSX documents
+
 We submitted the Expression of Interest for this call on 4 March 2020. On 11 March 2020 the WHO declared COVID-19 a global pandemic. The need for an effective tool to forecast hospital bed demand, and provide reliable, ward level forecasts was pressing when we made the original application. It is even more pressing now. There is no future where NHS capacity is plentiful. Even if we can build temporary hospitals, we cannot instantly train new staff and expand the workforce overnight. Instead it is imperative that we better manage our existing resource, and make the system as efficient as possible. 
 Above all we must remember that the problems of bed supply and demand were increasing even before COVID-19. Between 2010 and 2019, NHS bed capacity fell by 10.1%, and bed occupancy levels rose from 85% to 90%, with corresponding knock-on effects in waiting times for A&E, for cancer and for surgery.[@NHS Key Statistics briefing paper 2020]
 
@@ -56,21 +59,8 @@ Following the initial COVID-19 surge in Spring 2020, constrained ICU bed capacit
 Future bed management will need to maintain separate 'blue' and 'green' (COVID positive and COVID negative) streams, and to be ready to flex up and down in response to future surges. This is going to be particularly true where pathways involve critical care. Realtime bed information and short-term demand forecasts are going to be even more important to maintain patient flow.  These enable the workforce by putting the information they need in their hands at the right time. Staffing can be flexed, patients forewarned, or schedules re-adjusted to improve efficiency.
 
 
-TODO: ===========================
-TODO: @RESUME 2020-05-18t15:45:14
-TODO: ===========================
-
-NOTE: Please also provide a description of how your AI solution will support the NHS Long Term Plan, NHSX strategic priorities and/or wider government priorities including the Industrial Strategy grand challenges or resource efficiency. Please report market size, any related trend or forecast, patient population affected, NHS cost burden, and state of the art.
-NOTE: relevance to priorities and needs of the NHS, cite the NHSX documents
-
-NHS Long Term Plan
-NHS-X Strategic Priorities
-Industrial Strategy grand challenges
-Future trends
-- talk about the reduction in the number of beds
-- talk about COVID-19 pressures
-
-
+*Alignment with NHS/NHS plan and priorities*: Optimising management of inpatient resource, specifically bed capacity, is key to delivering the NHS Long Term plan. Beds, and by definition, are a hospital's most precious resource. It absurd that in 2020, major teaching hosptitals with budgets in the hundreds of millions providing thousands of surgeries, manage their patient admissions with Excel spreadsheets and 'huddles' the day before surgery. Despite the good will, the enthusiasm, and the considerable talent brought to this process, it cannot be efficient if the teams are not provided with both a view of the 'now' and a meaningful prediction of the near future. Supermarkets, airlines, postal services do not wait to see how many products are sold, tickets booked, or parcels sent. These flows can be forecasted, and then resources saved or augmented as demand requires.
+NHS-X has rightly called out that the process for translating prototypes into products, and seeing Digital Health Technlogy (DHT) scale has been a blocker to innovation. The existing application is a case in point. Even in 2012, no one would have developed an modelling tool in Visual Basic to run in an Excel spreadsheet. It is not only limiting, but almost impossible to meet the technology and interoperabilty standards outlined in the NHS Digital Health Technology Standard.[@NHS DHT Feb 2020] However, it was a sensible and pragmatic choice, that led to the application actually being used. This proposal is simply seeking to combine an update of the AI component, with a programme that meets these standards. In doing so, we will be enabling the NHS-X mission to 'reduce the burden on our workforce', and 'improve health ... productivity' with digital technology.[@https://www.nhsx.nhs.uk/about-us/what-we-do/]
 
 #### Existing product / experience
 
@@ -85,6 +75,11 @@ Our approach brings advantages to the end user, and to the organisation. For the
 This brings benefit to the surgical patient otherwise suffering on-the-day cancellation. But there is a also a greater opportunity. Current NHS strategy recommends running a hospital at 85% occupancy for maximum efficiency, and above 92% is regarded as a tipping point where flows from upstream services (A&E etc.) are impaired. High quality length of stay (LoS) and bed demand forecasts will allow us to move away from this 'rigid occupancy target' toward the equivalent of 'just-in-time' manufacturing processes. Patients with greater LoS can be identified to downstream health and social care partners earlier. And periods when such patients cause congestion in the system can be managed by pre-emptively adjusting the incoming elective case mix to favour a higher turnover/shorter stay cases.
 
 ## The Proposed Innovation
+
+TODO: ===========================
+TODO: @RESUME 2020-05-18t21:37:08
+TODO: ===========================
+
 
 ### Competitive advantage: 
 
@@ -558,6 +553,11 @@ arrangements for handling them. If there are no plans to obtain ethical
 review, this must be clearly justified. Note that work outlined in your
 application must adhere to the UK Framework for Health and Social Care
 Research.
+
+- data flow map
+- data protection impact assessment
+- data sharing agreement
+- privacy notice
 
 ## Intellectual Property (IP) and commercialisation strategy
 
