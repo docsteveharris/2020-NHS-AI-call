@@ -76,10 +76,18 @@ This brings benefit to the surgical patient otherwise suffering on-the-day cance
 
 ## The Proposed Innovation
 
-TODO: ===========================
-TODO: @RESUME 2020-05-18t21:37:08
-TODO: ===========================
+We have built a hyper-local realtime bed demand forecast that generates ward level predictions of bed demand over the subsequent week.  We focus on predicting bed *demand* rather than bed *utilisation*; the latter is the more common AI or simulation task but less informative.
 
+The bed demand forecast exists in two forms: (1) a model that uses patient level characteristics but cannot learn or be readily adapted to new settings; (2) a non-clinical model that extends to networks of wards and generalises to new settings. We now are now ready to combine and surpass the best of these two approaches in a new partnership of:
+
+- the UCL operational researchers that developed the mathematics used in the forecasts and that have expertise in working with clinicians and managers to specify and deliver predictive tools that fit with clinical and operational realities, led by Dr Sonya Crowe. More specifically, we propose to extend the mathematics of the existing forecasting approach to
+    - forecast demand in terms of staffing units rather than beds
+    - forecast demand adapted for infection control requirements (e.g. for side rooms) with particular note to the current COVID-19 response
+- a machine learning team led by Dr Ken Li at the UCL Institute of Health Informatics who will re-work the CART (regression based) predictions in the first model to use deep neural nets for continuously updating length-of-stay predictions
+
+TODO: insert summary of Ken's notes here
+
+- a clinical informatics team at University College London Hospital led by Dr Steve Harris that have built infrastructure to permit deployment of the application at varying levels of digital maturity (HIMSS Levels 0-7 using HL7v2.3+ and PAS systems and FHIR and EHRS systems)
 
 ### Competitive advantage: 
 
@@ -90,36 +98,47 @@ Our competitive advantage comes at three levels
 3. Digital infrastructure (EMAP)
 
 #### Joint academic-clinical team
-We are a team of clinicians (SH/TB) who have built and deployed a realtime data science platform at UCLH (EMAP). We have a long standing collaboration with UCL's Research Software Engineering team, and the highest commitment to sustainable and robust software development practices. We have worked with UCL's Clinical Operational Research Unit (SC/MU) for several years. CORU have extensive experience in both methodological innovation for operational research, and embedded clinical problem solving (e.g. the 'modeller' in residence programme).
+We are a team of clinicians (SH/TB) who have built and deployed a realtime data science platform at UCLH (EMAP). We have a long standing collaboration with UCL's Research Software Engineering team, and the highest commitment to sustainable and robust software development practices. We have worked with UCL's Clinical Operational Research Unit (SC/MU) for several years. CORU have extensive experience in both methodological innovation for operational research, and embedded clinical problem solving (e.g. the 'modeller' in residence programme). This joint working means that we can meet the standards in the NHS DHT draft (e.g. fit for purpose, clinically safe, compliant wiht open standards etc.)
 
 #### Modelling strategy
-We have built a hyper-local realtime bed demand forecast that generates ward level predictions of bed demand over the subsequent week.  We focus on predicting bed *demand* rather than bed *utilisation*; the latter is the more common AI or simulation task but less informative.  Discrete Event Simulation (DSE) is the approach adopted by the majority of existing commercial bed forecasting approaches (e.g. Teletracking & Hospital IQ, GE HealthCare's Digital Twin etc.) However, simulations can only describe observed behaviour.
+Discrete Event Simulation (DSE) is the approach adopted by the majority of existing commercial bed forecasting approaches (e.g. Teletracking & Hospital IQ, GE HealthCare's Digital Twin etc.) However, simulations can only describe observed behaviour.
 We eschew predictions under the known strained network and evaluate the 'what might have been' (counterfactual) scenario to gain novel insights.  Specifically, *demand* predictions are upstream of the response, and create a window for intervention (changing discharge priorities, flexing staffing, re-organising schedules etc.). We also build a bottom-up (local) forecast that starts at with the ward rather than hospital. A simulation might be helpful to a the executive team planning bed flows through a new building. However, local forecasts that are placed in the hands of the ward team, surgical pathway coordinators, and theatre planners offer a chance to actually improve operational efficiency.
 
 #### Digital Infrastructure (EMAP)
-TODO: Rewrite this to ensure that you are only using EMAP to prototype rapidly and not including it in the application; i.e. UCLH becomes the competitive advantage
-
 Over the last two years, UCLH has not only acquired a fully integrated Electronic Health Record System (Epic EHRS), but we (SH/TB/JC) have built a real-time data processing platform (EMAP) that exposed the information in the EHRS and other systems for research and innovation. This has been done with modern digital standards at its core. HL7 message streams are parsed, data is normalised to the OMOP Common Data Model, and FHIR aligned applications are on the roadmap for 2020. This means that we can move rapidly from concept to prototype, and indeed we were able to deploy CORU's non-Markovian model for the ICU at UCLH in less than a month.
-
-TODO: simple list of advantages of proposed technology
-- interface creation/design
-- data aggregation system
-- modelling predictions
+In contrast with most digital innovation scenarios, we can guarantee that *both* the data and the infrastructure are available from the first day of the project. This removes the usual delays that are assocaited with gathering, cleaning and organising data before AI models can be brought to bear. EMAP exposes admission/discharge/transfer updates within 5 minutes of their being entered into the EHRS. The updates are granular (bed level), and trust wide.
+Through the Clincial Research Informatics Unit (CRIU) at UCLH, we have an excellent working relationship with the the EHRS team. This will permit us to bring other clinical data streams to bear on the AI task. 
 
 ### Barriers to adoption: 
+TODO: !!! 2020-05-18
 TODO: see existing list under market plan and discuss here
 
-1. A set of learned model coefficients that accelerate deployment with a smaller training data set at a new location.
-2. An interface that permits adaption based on key local features
-3. A robust software package for reliable deployment
-4. A user interface that permits rapid adoption with minimal training needs for front line clinical staff
-
 ## Patient & public involvement (end users involvement)
-TODO: end users are hospitals and staff; can cite user centric design; 
-TODO: letter of support from BRC? Alison Clements @ UCLH? or other UCLH staff?
-TODO: ask @Sonya or @Martin for contacts/suggestions
+
+### End users
+The application will be used by NHS ward staff (sisters and charge nurses, ward managers, pathway coordinators, theatre coordinators, bed managers and consultant medical and surgical staff). We have a long history of *end user* engagement. The original model was developed under the auspices of the 'modeller in residence' programme by SP/MU at GOSH. This was a collaborative programme that involved both observation, prototyping, and feedback. 
+At UCLH, we have similarly good relationships with the same teams. We ran a workshop with more than 50 attendees from clinical, academic, and management teams describing the ambition to deliver a forecasting application here. We (SH) was a member of the programme board for the Coordination Centre, and we maintain a close working relationship with UCLH's Director of Operations (Clements).
+We have orientated the project to follow the principles of 'user centred design', and allocated significant resource to gather information on the needs and requirements of end-users from the outset. This will keep our DHT focused on delivering relevant operational benefits (as per recommendation 2 of NHS DHT standard).[@NHS DHT]
+
+### PPI and data
+The effects of the application, and the research performed, have important but indirect effects on patients. We recognise that use of NHS data must have an 'explicit aim to improve health ... or the operation of the NHS'.[@NHS data guiding principles, Principle 1] And we recognise that whilst the effect is indirect, PPI in the project will be important with respect to (1) access to data and (2) unintended consequences or harm.
+
+To date, we have led or actively participated in the following 
+- PPI events (2018,2019) to discuss the use of data for secondary use including operational improvement and research. Patients have repeatedly been supportive of our work as long as there is benefit to the NHS, and privacy is protected.
+- Datathons: (2015,2016) to engage the public and to show the value of the data to answer relevant clinical questions, and to bring benefit back to patients
+
+Going forwards we now propose to
+- appoint a patient or public representative to the project strategy board
+- implement a small series (3) workshops to specifically explore the issues surrounding cancellation of surgery, and the notice periods different individuals would consider acceptable. For example, there is trade off between use of model outputs that would lead to early but more frequent versus late but less frequent cancellations
+- continue to work with the PPI lead at UCLH/UCL Clinical Research Informatics Unit to disseminate information about the programme
+- engage with the staff, patients and the public whenever possible (e.g. UCLH/UCL BRC Research Open Days: we will host a stand where we show how the forecasts are being used to improve operational efficiency for the trust, and reduce patient distress from short notice cancellations)
 
 ## Detailed project plan
+
+TODO: ===========================
+TODO: @RESUME 2020-05-19t00:01:46
+TODO: ===========================
+
 The research is organised in NN work packages (WP). Each is shown with the number of man-months (MM), the deliverables (D), risks (R) and mitigations (MiT) and milestones (MS). These are then mapped to the attached Gantt chart. Against each of these we have proposed success criteria for three different operational scenarios.
 
 - **medical ward**: booking staff for the following shift
